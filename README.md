@@ -1,1 +1,36 @@
 # aiit-student-profile
+
+## How to launch
+
+http://localhost:3000/
+
+```zsh
+$ docker-compose up
+```
+
+## Build for development
+
+はじめて環境を構築するときのみ、必要な手順です。
+
+Build the container:
+
+```zsh
+$ docker-compose build
+```
+
+Install webpacker:
+
+```zsh
+$ docker-compose run web rails webpacker:install
+```
+
+Create database:
+
+```zsh
+$ docker-compose run web rake db:create
+```
+
+## References
+
+- [Quickstart: Compose and Rails](https://docs.docker.com/samples/rails/)
+
