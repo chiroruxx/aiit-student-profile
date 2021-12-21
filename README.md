@@ -32,5 +32,6 @@ $ docker-compose run web rake db:create
 
 ## References
 
+- [Production](https://aiit-student-profile.herokuapp.com/)
+- [Heroku dashboard](https://dashboard.heroku.com/apps/aiit-student-profile)
 - [Quickstart: Compose and Rails](https://docs.docker.com/samples/rails/)
-
