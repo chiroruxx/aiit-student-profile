@@ -8,9 +8,9 @@
 
 # Offense count: 6
 # Cop supports --auto-correct.
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'bin/bundle'
+#Layout/EmptyLineAfterGuardClause:
+#  Exclude:
+#    - 'bin/bundle'
 
 # Offense count: 4
 # Cop supports --auto-correct.
