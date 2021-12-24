@@ -1,0 +1,21 @@
+# Rails内のものは変えようがないので除外
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'bin/*'
+Metrics/MethodLength:
+  Exclude:
+    - 'bin/*'
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'bin/*'
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/test_helper.rb'
+    - 'app/models/application_record.rb'
+    - 'config/application.rb'
+
+AllCops:
+  NewCops: enable
