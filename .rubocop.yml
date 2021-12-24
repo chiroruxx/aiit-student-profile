@@ -1,4 +1,16 @@
 inherit_from: .rubocop_todo.yml
 
+# Rails内のものは変えようがないので除外
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'bin/*'
+Metrics/MethodLength:
+  Exclude:
+    - 'bin/*'
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'bin/*'
+
+
 AllCops:
   NewCops: enable
