@@ -1,0 +1,47 @@
+name: Test
+
+on: pull_request
+
+jobs:
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: "password"
+          POSTGRES_DB: profile_app_test
+          POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+        ports:
+          - "5432:5432"
+
+    env:
+      RAILS_ENV: test
+      DB_HOST: 127.0.0.1
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup yarn
+        uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+
+      - name: Install frontend dependencies
+        run: yarn install
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup database
+        run: bundle exec rails db:prepare
+
+      - name: Run tests
+        run: bundle exec rails test
