@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserProfile < ApplicationRecord
+  belongs_to :user, foreign_key: 'user_id', dependent: :destroy
+
   validates :name, presence: true, length: { maximum: 128 }
   validates :name_kana, presence: true, length: { maximum: 128 }
   validates :nickname, presence: true, length: { maximum: 128 }

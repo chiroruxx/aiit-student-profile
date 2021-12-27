@@ -1,0 +1,79 @@
+<%= form_with(model: @user_profile, local: true) do |f| %>
+  <div>
+    <p>
+      <%= f.label(:major_subject, '専攻') %>
+      <%= f.select(:major_subject, @major_subject.map{ |value| [value, value] }, :prompt => '選択してください') %>
+    </p>
+
+    <p>
+      <%= f.label(:started, '入学年') %>
+      <%= f.text_field :started %>
+    </p>
+
+    <p>
+      <%= f.label(:email, 'メールアドレス') %>
+      <%= f.text_field :email %>
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <%= f.label(:name, '氏名') %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label(:name_kana, 'フリガナ') %>
+      <%= f.text_field :name_kana %>
+    </p>
+
+    <p>
+      <%= f.label(:nickname, 'ニックネーム') %>
+      <%= f.text_field :nickname %>
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <%= f.label(:work, '仕事内容') %>
+      <%= f.text_area :work, placeholder: '入力...' %>
+    </p>
+
+    <p>
+      <%= f.label(:background, '入学した経緯') %>
+      <%= f.text_area :background, placeholder: '入力...' %>
+    </p>
+
+    <p>
+      <%= f.label(:pbl, '希望するPBL') %>
+      <%= f.text_field :pbl %>
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <%= f.label(:hobby, '趣味') %>
+      <%= f.text_field :hobby %>
+    </p>
+    <p>
+      <%= f.label(:favorite_food, '好きな食べ物') %>
+      <%= f.text_field :favorite_food %>
+    </p>
+
+    <p>
+      <%= f.label(:hated_food, '嫌いな食べ物') %>
+      <%= f.text_field :hated_food %>
+    </p>
+
+    <p>
+      <%= f.label(:other, 'その他') %>
+      <%= f.text_area :other, placeholder: '入力...' %>
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <%= f.submit yield(:button_text) %>
+    </p>
+  </div>
+<% end %>
