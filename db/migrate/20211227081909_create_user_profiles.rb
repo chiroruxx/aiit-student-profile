@@ -7,7 +7,7 @@ class CreateUserProfiles < ActiveRecord::Migration[6.1]
       t.references :user, foreign_key: true, null: false
       t.string :name, null: false, limit: 128
       t.string :name_kana, null: false, limit: 128
-      t.string :nickname, null: false, limit: 128
+      t.string :nickname, limit: 128
       t.string :email, null: false, limit: 255
       t.string :major_subject, null: false, limit: 255
       t.string :started, null: false, limit: 4
