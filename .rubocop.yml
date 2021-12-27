@@ -16,6 +16,24 @@ Style/Documentation:
     - 'app/helpers/test_helper.rb'
     - 'app/models/application_record.rb'
     - 'config/application.rb'
+    - 'db/migrate/*'
+Style/StringLiterals:
+  Exclude:
+    - 'db/schema.rb'
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+    - 'bin/bundle'
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
 
 AllCops:
   NewCops: enable
