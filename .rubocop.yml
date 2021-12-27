@@ -5,6 +5,7 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Exclude:
     - 'bin/*'
+    - 'db/**/*'
 Metrics/PerceivedComplexity:
   Exclude:
     - 'bin/*'
@@ -16,6 +17,10 @@ Style/Documentation:
     - 'app/helpers/test_helper.rb'
     - 'app/models/application_record.rb'
     - 'config/application.rb'
+Style/SymbolProc:
+  Exclude:
+    - 'db/**/*'
 
 AllCops:
   NewCops: enable
+
