@@ -10,7 +10,7 @@ one:
   name_kana: ヤマダ タロウ
   nickname: ヤタロー
   email: taro@example.com
-  major_subject: 情報アーキテクチャコース
+  major_subject: 情報アーキテクチャ
   started: 2021
   work: フリーランス
   background: 入学した経緯
@@ -26,7 +26,7 @@ two:
   name_kana: サトウ ハナコ
   nickname: Hana
   email: hanako@example.com
-  major_subject: 創造技術コース
+  major_subject: 創造技術
   started: 2020
   work: ○○コンサルティング
   background: 入学した経緯
