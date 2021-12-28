@@ -12,7 +12,6 @@
 # frozen_string_literal: true
 
 ActiveRecord::Schema.define(version: 2021_12_27_081909) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -23,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_081909) do
     t.string 'nickname', null: false
     t.string 'email', null: false
     t.string 'major_subject', null: false
-    t.string 'started', null: false
+    t.integer 'started', null: false, limit: 2
     t.text 'work'
     t.text 'background'
     t.text 'hobby'

@@ -20,6 +20,9 @@ Style/Documentation:
 Style/SymbolProc:
   Exclude:
     - 'db/**/*'
+Style/NumericLiterals:
+  Exclude:
+    - 'db/**/*'
 
 AllCops:
   NewCops: enable
