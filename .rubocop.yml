@@ -9,6 +9,9 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Exclude:
     - 'bin/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'db/**/*'
 Style/Documentation:
   Exclude:
     - 'spec/**/*'

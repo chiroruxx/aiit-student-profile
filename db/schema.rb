@@ -11,9 +11,24 @@
 # It's strongly recommended that you check this file into your version control system.
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 2021_12_27_081909) do
+ActiveRecord::Schema.define(version: 2021_12_28_122135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'subjects', force: :cascade do |t|
+    t.string 'name', limit: 128, null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'user_profile_subjects', force: :cascade do |t|
+    t.bigint 'user_profile_id', null: false
+    t.bigint 'subject_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['subject_id'], name: 'index_user_profile_subjects_on_subject_id'
+    t.index ['user_profile_id'], name: 'index_user_profile_subjects_on_user_profile_id'
+  end
 
   create_table 'user_profiles', force: :cascade do |t|
     t.bigint 'user_id', null: false
@@ -22,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_081909) do
     t.string 'nickname', null: false
     t.string 'email', null: false
     t.string 'major_subject', null: false
-    t.integer 'started', null: false, limit: 2
+    t.integer 'started', limit: 2, null: false
     t.text 'work'
     t.text 'background'
     t.text 'hobby'
@@ -40,5 +55,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_081909) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+  add_foreign_key 'user_profile_subjects', 'subjects'
+  add_foreign_key 'user_profile_subjects', 'user_profiles'
   add_foreign_key 'user_profiles', 'users'
 end
