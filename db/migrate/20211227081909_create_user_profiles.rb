@@ -10,7 +10,7 @@ class CreateUserProfiles < ActiveRecord::Migration[6.1]
       t.string :nickname, limit: 128
       t.string :email, null: false, limit: 255
       t.string :major_subject, null: false, limit: 255
-      t.string :started, null: false, limit: 4
+      t.string :started, null: false, 'char(4)'
       t.text :work
       t.text :background
       t.text :hobby
