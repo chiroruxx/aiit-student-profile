@@ -1,0 +1,38 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  user_id: 1
+  name: Taro Yamada
+  name_kana: ヤマダ タロウ
+  nickname: ヤタロー
+  email: taro@example.com
+  major_subject: 情報アーキテクチャ
+  started: 2021
+  work: フリーランス
+  background: 入学した経緯
+  hobby: ゲーム
+  pbl: 小山PBL
+  favorite_food: カラムーチョ
+  hated_food: パイナップル
+  other: なにか
+
+two:
+  user_id: 2
+  name: 佐藤 花子
+  name_kana: サトウ ハナコ
+  nickname: Hana
+  email: hanako@example.com
+  major_subject: 創造技術
+  started: 2020
+  work: ○○コンサルティング
+  background: 入学した経緯
+  hobby: 編み物
+  pbl: 飛田PBL
+  favorite_food: 牡蠣
+  hated_food: ありません
+  other: なにか
+
