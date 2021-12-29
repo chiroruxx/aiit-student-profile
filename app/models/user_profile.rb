@@ -12,8 +12,7 @@ class UserProfile < ApplicationRecord
   validates :name_kana, length: { maximum: 128 }, allow_nil: true
   validates :nickname, length: { maximum: 128 }, allow_nil: true
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: true }
+                    format: { with: VALID_EMAIL_REGEX }
   validates :major_subject, presence: true, length: { maximum: 255 }
   validates :started, numericality: { only_integer: true, greater_than_or_equal_to: Date.current.year - 10,
                                       less_than_or_equal_to: Date.current.year + 10 }
