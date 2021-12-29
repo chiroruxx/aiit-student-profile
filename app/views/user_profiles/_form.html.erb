@@ -1,79 +1,112 @@
+<% if @user_profile.errors.any? %>
+  <div>
+    <div class="alert alert-danger">
+      <ul>
+        <% @user_profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<% if @user_profile.id %>
+user profile id: <%= @user_profile.id %>
+<% end %>
+
 <%= form_with(model: @user_profile, local: true) do |f| %>
   <div>
-    <p>
-      <%= f.label(:major_subject, '専攻') %>
-      <%= f.select(:major_subject, @major_subject.map{ |value| [value, value] }, :prompt => '選択してください') %>
-    </p>
+    <h1>基本情報</h1>
+    <div>
+      <p><%= f.label :name, '名前' %></p>
+      <p><%= f.text_field :name %></p>
+    </div>
 
-    <p>
-      <%= f.label(:started, '入学年') %>
-      <%= f.text_field :started %>
-    </p>
+    <div>
+      <p><%= f.label :name_kana, 'ふりがな' %></p>
+      <p><%= f.text_field :name_kana %></p>
+    </div>
 
-    <p>
-      <%= f.label(:email, 'メールアドレス') %>
-      <%= f.text_field :email %>
-    </p>
+    <div>
+      <p><%= f.label :email, 'メールアドレス' %></p>
+      <p><%= f.text_field :email %></p>
+    </div>
+
+    <div>
+      <p><%= f.label :major_subject, 'コース' %></p>
+      <p><%= f.select :major_subject, 
+                  @major_subject.map{ |value| [value, value] },
+                  :prompt => '選択してください' %></p>
+    </div>
+
+    <div>
+      <p><%= f.label :started, '入学年' %></p>
+      <p><%= f.text_field :started %></p>
+    </div>
+
+    <div>
+      <p><%= f.label :other, '自己紹介' %></p>
+      <p><%= f.text_area :other, placeholder: '入力...' %></p>
+    </div>
+
+    <div>
+      <p>プロフィール画像</p>
+      <p>...</p>
+    </div>
   </div>
 
   <div>
-    <p>
-      <%= f.label(:name, '氏名') %>
-      <%= f.text_field :name %>
-    </p>
+    <h1>個人プロフィール</h1>
+    <div>
+      <p><%= f.label :nickname, 'ニックネーム' %></p>
+      <p><%= f.text_field :nickname %></p>
+    </div>
 
-    <p>
-      <%= f.label(:name_kana, 'フリガナ') %>
-      <%= f.text_field :name_kana %>
-    </p>
+    <div>
+      <p><%= f.label :work, '仕事' %></p>
+      <p><%= f.text_field :work, placeholder: '入力...' %></p>
+    </div>
 
-    <p>
-      <%= f.label(:nickname, 'ニックネーム') %>
-      <%= f.text_field :nickname %>
-    </p>
+    <div>
+      <p><%= f.label :hobby, '趣味' %></p>
+      </p><%= f.text_area :hobby %></p>
+    </div>
+
+    <div>
+      <p><%= f.label :favorite_food, '好きな食べ物' %></p>
+      <p><%= f.text_field :favorite_food %></p>
+    </div>
+
+    <div>
+      <p><%= f.label :hated_food, '嫌いな食べ物' %></p>
+      <p><%= f.text_field :hated_food %></p>
+    </div>
   </div>
 
   <div>
-    <p>
-      <%= f.label(:work, '仕事内容') %>
-      <%= f.text_area :work, placeholder: '入力...' %>
-    </p>
+    <h1>学校プロフィール</h1>
+    <div>
+      <p><%= f.label :background, '入学した経緯' %></p>
+      <p><%= f.text_area :background, placeholder: '入力...' %></p>
+    </div>
 
-    <p>
-      <%= f.label(:background, '入学した経緯') %>
-      <%= f.text_area :background, placeholder: '入力...' %>
-    </p>
+    <div>
+      <p><%= f.label :pbl, '入りたいPBL' %></p>
+      <p><%= f.text_field :pbl %></p>
+    </div>
 
-    <p>
-      <%= f.label(:pbl, '希望するPBL') %>
-      <%= f.text_field :pbl %>
-    </p>
+    <div>
+      <p><%= f.label :user_profile_subjects, '受講した科目' %></p>
+      <p><%= f.collection_check_boxes :subject_ids,
+                                   @subjects, 
+                                   :id, 
+                                   :name
+      %></p>
+    </div>
   </div>
 
   <div>
-    <p>
-      <%= f.label(:hobby, '趣味') %>
-      <%= f.text_field :hobby %>
-    </p>
-    <p>
-      <%= f.label(:favorite_food, '好きな食べ物') %>
-      <%= f.text_field :favorite_food %>
-    </p>
-
-    <p>
-      <%= f.label(:hated_food, '嫌いな食べ物') %>
-      <%= f.text_field :hated_food %>
-    </p>
-
-    <p>
-      <%= f.label(:other, 'その他') %>
-      <%= f.text_area :other, placeholder: '入力...' %>
-    </p>
+    <%= f.submit '保存' %>
   </div>
-
-  <div>
-    <p>
-      <%= f.submit yield(:button_text) %>
-    </p>
-  </div>
+  
 <% end %>
