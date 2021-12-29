@@ -33,8 +33,7 @@ Metrics/MethodLength:
     - 'bin/bundle'
 Style/FrozenStringLiteralComment:
   Exclude:
-    - 'db/migrate/*'
-    - 'db/schema.rb'
+    - 'db/**/*'
 Style/SymbolProc:
   Exclude:
     - 'db/**/*'
