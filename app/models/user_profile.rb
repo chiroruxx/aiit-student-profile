@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
+# model for UserProfile
 class UserProfile < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :user_profile_subjects, dependent: :destroy
   has_many :subjects, through: :user_profile_subjects
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+
   validates :name, presence: true, length: { maximum: 128 }
   validates :name_kana, length: { maximum: 128 }, allow_nil: true
   validates :nickname, length: { maximum: 128 }, allow_nil: true
