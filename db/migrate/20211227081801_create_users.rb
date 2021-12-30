@@ -4,6 +4,10 @@
 class CreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
+      t.string :name, null: false, limit: 128
+      t.string :provider, null: false, limit: 128
+      t.string :uid, null: false, limit: 16
+      t.string :image
       t.timestamps
     end
   end
