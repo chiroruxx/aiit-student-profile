@@ -1,0 +1,14 @@
+<header class="navbar bg-palegreen">
+  <div class="container">
+    <%= link_to "AIIT Student Profile", user_profiles_path %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        <%= link_to register_path do %>
+            <span class="material-icons">edit</span>
+            プロフを編集する
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
