@@ -1,0 +1,11 @@
+<h1>AIIT Student Profile</h1>
+<%= link_to 'プロフを編集する', register_path %>
+<ul class="users">
+  <% @user_profiles.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+      <%= user.major_subject %>
+      <%= user.other %>
+    </li>
+  <% end %>
+</ul>
