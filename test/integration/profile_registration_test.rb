@@ -4,9 +4,42 @@ require 'test_helper'
 
 class ProfileRegistrationTest < ActionDispatch::IntegrationTest
   def setup
-    @user_profile = user_profiles(:one)
+    @user = users(:three)
   end
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'unsuccessful registration' do
+    # login and do not have user_profile
+    get register_path
+    assert_template 'user_profiles/new'
+    assert_no_difference 'UserProfile.count' do
+      post user_profiles_path, params: {
+        user_profile: {
+          user_id: 3,
+          name: '',
+          email: '',
+          major_subject: '',
+          started: ''
+        }
+      }
+    end
+    assert_template 'user_profiles/new' 
+  end
+
+  test 'successful registration' do
+    # login and do not have user_profile
+    get register_path
+    assert_template 'user_profiles/new'
+    assert_difference 'UserProfile.count', 1 do
+      post user_profiles_path, params: {
+        user_profile: {
+          user_id: 3,
+          name: 'man',
+          email: 'man@man.com',
+          major_subject: '情報アーキテクチャ',
+          started: '2021'
+        }
+      }
+    end
+    assert_template 'user_profiles/edit' 
+  end
 end
