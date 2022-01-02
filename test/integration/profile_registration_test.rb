@@ -22,7 +22,7 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_template 'user_profiles/new' 
+    assert_template 'user_profiles/new'
   end
 
   test 'successful registration' do
@@ -40,6 +40,6 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_template 'user_profiles/edit' 
+    assert_template 'user_profiles/edit'
   end
 end
