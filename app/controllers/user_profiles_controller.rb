@@ -28,6 +28,10 @@ class UserProfilesController < ApplicationController
     end
   end
 
+  def show
+    @user = UserProfile.find_by(user_id: params[:id])
+  end
+
   def edit
     @user = User.last
     # @user_profile = current_user.user_profile
