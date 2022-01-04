@@ -4,6 +4,12 @@
     background-color: #EDF6E5;
 }
 
+// Google Material Icons
+// デフォルトだとアイコンが浮いてしまうため
+.material-icons {
+    vertical-align: middle;
+}
+
 // body
 body {
     font-family: 'Noto Sans JP', sans-serif;
@@ -30,6 +36,11 @@ body {
         }
         .major_subject {
           font-size: 12px;
+          .material-icons {
+              font-size: 13px;
+              padding: 2px;
+
+          }
         }
         .other {
           display: block;
@@ -40,7 +51,7 @@ body {
       }
 
     }
-    .material-icons {
+    .account-icon {
       font-size: 90px;
     }
 }
@@ -55,6 +66,9 @@ header {
             text-decoration: none;
             font-weight: bold;
           }
+        .material-icons {
+          font-size: 1rem;
+        }
         nav > ul {
             font-size: 1rem;
             line-height: 1.5rem;
