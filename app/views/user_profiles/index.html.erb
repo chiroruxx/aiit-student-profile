@@ -1,10 +1,10 @@
 <ul class="users">
   <% @user_profiles.each do |user| %>
     <li class="bg-palegreen">
-      <span class="material-icons">account_box</span>
+      <span class="material-icons account-icon">account_box</span>
       <span class="user-info">
         <span class="username"><%= link_to user.name, user %></span>
-        <span class="major_subject"><%= user.major_subject %></span>
+        <span class="major_subject"><%== major_subject_icon(user.major_subject) %><%= user.major_subject %></span>
         <spna class="other"><%= user.other.truncate(200) %></span>
       </span>
     </li>
