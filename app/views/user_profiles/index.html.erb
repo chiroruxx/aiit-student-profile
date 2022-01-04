@@ -5,7 +5,7 @@
       <span class="user-info">
         <span class="username"><%= link_to user.name, user %></span>
         <span class="major_subject"><%= user.major_subject %></span>
-        <spna class="other"><%= user.other %></span>
+        <spna class="other"><%= user.other.truncate(200) %></span>
       </span>
     </li>
   <% end %>
