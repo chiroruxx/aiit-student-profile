@@ -56,6 +56,50 @@ body {
     }
 }
 
+// profile registration/edit
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.user_profile {
+  /* form */
+  input[type="text"], textarea, select {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+  }
+
+  input {
+    height: auto !important;
+  }
+
+  .form-required:after {
+    content: '*';
+    color: #F38BA0;
+  }
+
+  .checkbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+
+  .field_with_errors {
+    .form-controls {
+      border-color: #F38BA0;
+      color: #F38BA0;
+      -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+      box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    }
+  }
+}
+
 // header
 header {
     box-shadow: 3px 4px 5px grey;
