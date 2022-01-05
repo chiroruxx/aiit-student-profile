@@ -3,11 +3,6 @@
 require 'test_helper'
 
 class UserProfilesIndexTest < ActionDispatch::IntegrationTest
-  def setup
-    @user = users(:three)
-    @user_profile = user_profiles(:three)
-  end
-
   test 'show user list' do
     # login and do not have user_profile
     get user_profiles_path
