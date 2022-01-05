@@ -22,7 +22,7 @@ class UserProfilesController < ApplicationController
     # @user_profile = current_user.build_user_profile(profile_params)
     @user_profile = @user.build_user_profile(profile_params)
     if @user_profile.save
-      render 'edit'
+      redirect_to user_profiles_path
     else
       render 'new'
     end
