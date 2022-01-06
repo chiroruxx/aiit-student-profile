@@ -1,24 +1,37 @@
 // header
-header {
-  box-shadow: 3px 4px 5px grey;
-  .container {
-    > a {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .material-icons {
-      font-size: 1rem;
-    }
-    nav > ul {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
+.header {
+  background-color: $base-weak;
+  box-shadow: 0 4px 4px $shadow;
+}
+
+.header_title {
+  text-decoration: none;
+
+  &__content {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.header_menu {
+  line-height: 1.5rem;
+
+  // 優先順位の都合で BEM で記載できない
+  .material-icons {
+    font-size: 1rem;
   }
 }
 
 // footer
-footer {
-  border-top: 1px solid #eaeaea;
+.footer {
+  border-top: 1px solid $border-weak;
+  padding-top: 1rem;
+  color: $text-weak;
+  text-align: center;
+}
+
+// main content
+.main_content {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
 }
