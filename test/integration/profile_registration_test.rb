@@ -40,6 +40,6 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_template 'user_profiles/edit'
+    assert_redirected_to user_profiles_path
   end
 end
