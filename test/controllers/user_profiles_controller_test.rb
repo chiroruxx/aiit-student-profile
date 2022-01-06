@@ -7,4 +7,10 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
     get register_path
     assert_response :success
   end
+
+  test 'should get index' do
+    # TODO: should redirect login_index when not logged in
+    get user_profiles_path
+    user_profiles_path :success
+  end
 end

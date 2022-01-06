@@ -1,0 +1,82 @@
+// background-color
+.bg-palegreen {
+    --bs-bg-opacity: 1;
+    background-color: #EDF6E5;
+}
+
+// Google Material Icons
+// デフォルトだとアイコンが浮いてしまうため
+.material-icons {
+    vertical-align: middle;
+}
+
+// body
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    a {
+        color: black;
+    }
+}
+
+// profile list
+.users {
+    list-style: none;
+    margin: 0;
+    li {
+      overflow: auto;
+      margin: 10px 0;
+      box-shadow: 3px 4px 5px grey;
+      .user-info {
+        position: fixed;
+        padding: 10px;
+        .username > a {
+          text-decoration: none;
+          font-size: 26px;
+          font-weight: bold;
+        }
+        .major_subject {
+          font-size: 12px;
+          .material-icons {
+              font-size: 13px;
+              padding: 2px;
+
+          }
+        }
+        .other {
+          display: block;
+          padding: 3px 0;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+
+    }
+    .account-icon {
+      font-size: 90px;
+    }
+}
+
+// header
+header {
+    box-shadow: 3px 4px 5px grey;
+    .container {
+        > a {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        .material-icons {
+          font-size: 1rem;
+        }
+        nav > ul {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+// footer
+footer {
+    border-top: 1px solid #eaeaea;
+  }
