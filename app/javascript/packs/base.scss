@@ -19,3 +19,9 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
 }
+
+// icon
+// デフォルトだとアイコンが浮いてしまうため
+.material-icons {
+  vertical-align: middle;
+}
