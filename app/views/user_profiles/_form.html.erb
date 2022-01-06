@@ -1,6 +1,6 @@
 <%= form_with(model: @user_profile, local: true) do |f| %>
   <div class="user_profile">
-    <div>
+    <div class="field_group">
       <div class="subtitle">
         <span class="material-icons">insert_drive_file</span>
         基本情報
@@ -8,9 +8,11 @@
       <%= f.label :name, '名前', class: 'form-required' %>
       <%= f.text_field :name, class: 'form-control' %>
       <% if @user_profile.errors.include?(:name) %>
-        <% @user_profile.errors.full_messages_for(:name).each do |msg| %>
-          <p class="error_message"><%= msg %></p>
-        <% end %>
+        <div class="error_message_container">
+          <% @user_profile.errors.full_messages_for(:name).each do |msg| %>
+            <p class="error_message"><%= msg %></p>
+          <% end %>
+        </div>
       <% end %>
 
       <%= f.label :name_kana, 'ふりがな' %>
@@ -19,9 +21,11 @@
       <%= f.label :email, 'メールアドレス', class: 'form-required' %>
       <%= f.text_field :email, class: 'form-control' %>
       <% if @user_profile.errors.include?(:email) %>
-        <% @user_profile.errors.full_messages_for(:email).each do |msg| %>
-          <p class="error_message"><%= msg %></p>
-        <% end %>
+        <div class="error_message_container">
+          <% @user_profile.errors.full_messages_for(:email).each do |msg| %>
+            <p class="error_message"><%= msg %></p>
+          <% end %>
+        </div>
       <% end %>
 
       <%= f.label :major_subject, 'コース', class: 'form-required' %>
@@ -31,17 +35,21 @@
                   { :class => 'form-control' })
                   %>
       <% if @user_profile.errors.include?(:major_subject) %>
-        <% @user_profile.errors.full_messages_for(:major_subject).each do |msg| %>
-          <p class="error_message"><%= msg %></p>
-        <% end %>
+        <div class="error_message_container">
+          <% @user_profile.errors.full_messages_for(:major_subject).each do |msg| %>
+            <p class="error_message"><%= msg %></p>
+          <% end %>
+        </div>
       <% end %>
 
       <%= f.label :started, '入学年', class: 'form-required' %>
       <%= f.text_field :started, class: 'form-control' %>
       <% if @user_profile.errors.include?(:started) %>
-        <% @user_profile.errors.full_messages_for(:started).each do |msg| %>
-          <p class="error_message"><%= msg %></p>
-        <% end %>
+        <div class="error_message_container">
+          <% @user_profile.errors.full_messages_for(:started).each do |msg| %>
+            <p class="error_message"><%= msg %></p>
+          <% end %>
+        </div>
       <% end %>
 
       <%= f.label :other, '自己紹介' %>
@@ -53,7 +61,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="field_group">
       <div class="subtitle">
         <span class="material-icons">person</span>
         個人プロフィール
@@ -76,7 +84,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="field_group">
       <div class="subtitle">
         <span class="material-icons">school</span>
         学校プロフィール

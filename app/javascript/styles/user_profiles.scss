@@ -1,51 +1,36 @@
 // background-color
 .bg-palegreen {
   --bs-bg-opacity: 1;
-  background-color: #edf6e5;
-}
-
-// Google Material Icons
-// デフォルトだとアイコンが浮いてしまうため
-.material-icons {
-  vertical-align: middle;
-}
-
-// body
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  a {
-    color: black;
-  }
+  background-color: $base-weak;
 }
 
 // profile list
 .users {
   list-style: none;
   margin: 0;
+  padding-left: 0;
   li {
     overflow: auto;
-    margin: 10px 0;
-    box-shadow: 3px 4px 5px grey;
+    margin: 1rem 0;
+    box-shadow: 0 4px 4px $shadow;
     .user-info {
       position: fixed;
-      padding: 10px;
+      padding: 0.5rem;
       .username > a {
         text-decoration: none;
-        font-size: 26px;
+        font-size: 2.25rem;
         font-weight: bold;
       }
       .major_subject {
-        font-size: 12px;
+        color: $text-weak;
         .material-icons {
-          font-size: 13px;
+          font-size: 1rem;
           padding: 2px;
         }
       }
       .other {
         display: block;
         padding: 3px 0;
-        font-size: 12px;
-        font-weight: bold;
       }
     }
   }
@@ -64,17 +49,25 @@ body {
 .user_profile {
   /* form */
   div.subtitle {
-    margin-top: 15px;
-    font-size: 26px;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
+
+    .material-icons {
+      font-size: 1.5rem;
+    }
+  }
+
+  .field_group {
+    margin-bottom: 3rem;
   }
 
   input[type="text"],
   textarea,
   select {
-    border: 1px solid #bbb;
+    border: 1px solid $border-weak;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     @include box_sizing;
   }
 
@@ -82,61 +75,47 @@ body {
     height: auto !important;
   }
 
+  label {
+    margin-bottom: 0.5rem;
+  }
+
   .form-required:after {
     content: "*";
-    color: #f38ba0;
+    color: $accent-strong;
   }
 
   .checkbox {
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
     span {
-      margin-left: 20px;
+      margin-left: 0.5rem;
       font-weight: normal;
     }
   }
 
   .field_with_errors {
     .form-control {
-      border-color: #f38ba0;
-      color: #f38ba0;
+      border-color: $accent-strong;
+      color: $accent-strong;
       -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
       box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     }
   }
 
+  .error_message_container {
+    margin-bottom: 1rem;
+  }
+
   .error_message {
-    color: #f38ba0;
+    color: $accent-strong;
+    margin-bottom: 0;
   }
 
   .btn {
-    margin-top: 15px;
-    background-color: #B5EAEA;
+    margin-top: 1rem;
+    font-weight: 500;
+    background-color: $base-strong;
     border: none;
+    box-shadow: 0 4px 4px $shadow;
   }
-}
-
-// header
-header {
-  box-shadow: 3px 4px 5px grey;
-  .container {
-    > a {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .material-icons {
-      font-size: 1rem;
-    }
-    nav > ul {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-  }
-}
-
-// footer
-footer {
-  border-top: 1px solid #eaeaea;
 }
