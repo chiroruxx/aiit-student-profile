@@ -25,3 +25,12 @@ body {
 .material-icons {
   vertical-align: middle;
 }
+
+// placeholder
+.form-control::placeholder {
+  color: $placeholder;
+}
+
+::placeholder {
+  color: $placeholder;
+}

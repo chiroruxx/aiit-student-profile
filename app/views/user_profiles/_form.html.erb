@@ -6,7 +6,7 @@
         基本情報
       </div>
       <%= f.label :name, '名前', class: 'form-required' %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, placeholder: "小山 きよみ", class: 'form-control' %>
       <% if @user_profile.errors.include?(:name) %>
         <div class="error_message_container">
           <% @user_profile.errors.full_messages_for(:name).each do |msg| %>
@@ -16,10 +16,10 @@
       <% end %>
 
       <%= f.label :name_kana, 'ふりがな' %>
-      <%= f.text_field :name_kana, class: 'form-control' %>
+      <%= f.text_field :name_kana, placeholder: "こやま きよみ", class: 'form-control' %>
 
       <%= f.label :email, 'メールアドレス', class: 'form-required' %>
-      <%= f.text_field :email, class: 'form-control' %>
+      <%= f.text_field :email, placeholder: "a2100ab@aiit.ac.jp", class: 'form-control' %>
       <% if @user_profile.errors.include?(:email) %>
         <div class="error_message_container">
           <% @user_profile.errors.full_messages_for(:email).each do |msg| %>
@@ -43,7 +43,7 @@
       <% end %>
 
       <%= f.label :started, '入学年', class: 'form-required' %>
-      <%= f.text_field :started, class: 'form-control' %>
+      <%= f.text_field :started, placeholder: "2021", class: 'form-control' %>
       <% if @user_profile.errors.include?(:started) %>
         <div class="error_message_container">
           <% @user_profile.errors.full_messages_for(:started).each do |msg| %>
@@ -53,7 +53,7 @@
       <% end %>
 
       <%= f.label :other, '自己紹介' %>
-      <%= f.text_area :other, placeholder: '入力...', class: 'form-control' %>
+      <%= f.text_area :other, placeholder: "こんにちは！\n情報アーキテクトとプロジェクトマネジメントに興味があります。\nよろしくおねがいします。", rows: 5, class: 'form-control' %>
 
       <div>
       プロフィール画像
@@ -68,19 +68,19 @@
       </div>
       <div>
         <%= f.label :nickname, 'ニックネーム' %>
-        <%= f.text_field :nickname, class: 'form-control' %>
+        <%= f.text_field :nickname, placeholder: "tobby", class: 'form-control' %>
 
         <%= f.label :work, '仕事' %>
-        <%= f.text_field :work, placeholder: '入力...', class: 'form-control' %>
+        <%= f.text_field :work, placeholder: 'コンサル会社でPMをやっています。', class: 'form-control' %>
 
         <%= f.label :hobby, '趣味' %>
-        <%= f.text_area :hobby, class: 'form-control' %>
+        <%= f.text_area :hobby, placeholder: "サッカー観戦とウィスキー集め", class: 'form-control' %>
 
         <%= f.label :favorite_food, '好きな食べ物' %>
-        <%= f.text_field :favorite_food, class: 'form-control' %>
+        <%= f.text_field :favorite_food, placeholder: "蟹", class: 'form-control' %>
 
         <%= f.label :hated_food, '嫌いな食べ物' %>
-        <%= f.text_field :hated_food, class: 'form-control' %>
+        <%= f.text_field :hated_food, placeholder: "なんでも食べます。", class: 'form-control' %>
       </div>
     </div>
 
@@ -91,10 +91,10 @@
       </div>
       <div>
         <%= f.label :background, '入学した経緯' %>
-        <%= f.text_area :background, placeholder: '入力...', class: 'form-control' %>
+        <%= f.text_area :background, placeholder: 'エンジニアになって圧倒的成長をして年収1000万円になるため。', class: 'form-control' %>
 
         <%= f.label :pbl, '入りたいPBL' %>
-        <%= f.text_field :pbl, class: 'form-control' %>
+        <%= f.text_field :pbl, placeholder: "小山PBL 三好PBL", class: 'form-control' %>
 
         <%= f.label :user_profile_subjects, '受講した科目' %>
         <%= f.collection_check_boxes :subject_ids, @subjects, :id, :name do |b| %>
