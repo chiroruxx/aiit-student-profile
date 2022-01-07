@@ -8,18 +8,21 @@
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Noto Sans Japanese Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone" rel="stylesheet">
+
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-      <% if current_user %>
-        <%= image_tag current_user.image %>
-        <%= current_user.name %>
-        <%= link_to 'Sign out', sign_out_path %>
-      <% else  %>
-        <%= link_to 'Sign in with Google', '/auth/google_oauth2', method: :post %>
-      <% end %>
-    </header>
-
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="main_content container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

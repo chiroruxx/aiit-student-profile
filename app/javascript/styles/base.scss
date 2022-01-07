@@ -1,0 +1,27 @@
+// reset anchor style
+a {
+  color: $text-color;
+  text-decoration: underline;
+
+  &:visited {
+    color: $text-color;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+// default font
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+}
+
+// icon
+// デフォルトだとアイコンが浮いてしまうため
+.material-icons {
+  vertical-align: middle;
+}

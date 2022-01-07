@@ -36,3 +36,18 @@ two:
   hated_food: ありません
   other: なにか
 
+three:
+  user_id: 3
+  name: 小山 きよみ
+  name_kana: オヤマ キヨミ
+  nickname: oyama
+  email: oyama_kiyomi_test@example.com
+  major_subject: 創造技術
+  started: 2021
+  work: ○○コンサルティング
+  background: 入学した経緯
+  hobby: 編み物
+  pbl: 飛田PBL
+  favorite_food: 牡蠣
+  hated_food: ありません
+  other: 200文字以上テストを行います。文書は寿限無から参照しています。寿限無じゅげむ、寿限無じゅげむ、五劫ごこうの擦すり切きれ、海砂利かいじゃり水魚すいぎょの、水行末すいぎょうまつ・雲来末うんらいまつ・風来末ふうらいまつ、喰う寝る処ところに住む処ところ、藪やぶら柑子こうじの藪柑子ぶらこうじ、パイポ・パイポ・パイポのシューリンガン、シューリンガンのグーリンダイ、グーリンダイのポンポコピーのポンポコナの、長久命ちょうきゅうめいの長助ちょう。

@@ -12,6 +12,7 @@
 # frozen_string_literal: true
 
 ActiveRecord::Schema.define(version: 2021_12_28_122135) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -32,18 +33,18 @@ ActiveRecord::Schema.define(version: 2021_12_28_122135) do
 
   create_table 'user_profiles', force: :cascade do |t|
     t.bigint 'user_id', null: false
-    t.string 'name', null: false
-    t.string 'name_kana', null: false
-    t.string 'nickname', null: false
-    t.string 'email', null: false
-    t.string 'major_subject', null: false
+    t.string 'name', limit: 128, null: false
+    t.string 'name_kana', limit: 128
+    t.string 'nickname', limit: 128
+    t.string 'email', limit: 255, null: false
+    t.string 'major_subject', limit: 255, null: false
     t.integer 'started', limit: 2, null: false
     t.text 'work'
     t.text 'background'
     t.text 'hobby'
-    t.string 'pbl'
-    t.string 'favorite_food'
-    t.string 'hated_food'
+    t.string 'pbl', limit: 128
+    t.string 'favorite_food', limit: 128
+    t.string 'hated_food', limit: 128
     t.text 'other'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
