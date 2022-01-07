@@ -1,1 +1,85 @@
-<%= @user.name %>
+<div class="base_profile">
+  <%#= if @profile.has_image %>
+  <%# ログイン後に差し替える %>
+  <img src="https://1.bp.blogspot.com/-3YfJ5FDIfB0/Wn1V7_0bdfI/AAAAAAABKGc/NJMDAsrSGBEkWEpaxBjBujsXHqOXEx3pACLcBGAs/s400/hyoujou_shinda_me_man.png" alt="" class="base_profile__photo">
+  <%# else %>
+  <%# <span class="base_profile__photo material-icons">account_box</span> %>
+  <%# endif %>
+  <div class="base_profile__info">
+    <% if @profile.name_kana.present? %>
+      <span><%=  @profile.name_kana  %></span>
+    <% end %>
+    <h2 class="base_profile__name"><%= @profile.name %></h2>
+    <ul class="base_profile_list">
+      <li class="base_profile_list__item"><%== major_subject_icon(@profile.major_subject) %><%= @profile.major_subject %></li>
+      <li class="base_profile_list__item"><span class="material-icons">school</span><%= @profile.started %>年入学</li>
+      <li class="base_profile_list__item"><span class="material-icons">email</span><%= @profile.email %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="profile_two_column_layout">
+  <% if @profile.other.present? && @profile.school_profile? %>
+    <div class="school_profile">
+      <% if @profile.other.present? %>
+        <h3 class="school_profile__heading"><span class="material-icons">short_text</span>自己紹介</h3>
+        <div class="school_profile__content"><%= simple_format(@profile.other) %></div>
+      <% end %>
+
+      <% if @profile.school_profile? %>
+        <div class="school_profile__content">
+          <div class="definition_list">
+            <% if @profile.background.present? %>
+              <span class="definition_list__term">入学した経緯</span>
+              <span><%= @profile.background %></span>
+            <% end %>
+            <% if @profile.pbl.present? %>
+              <span class="definition_list__term">入りたいPBL</span>
+              <span><%= @profile.pbl %></span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% unless @profile.subjects.empty? %>
+        <h3 class="school_profile__heading"><span class='material-icons'>check</span>受講した科目</h3>
+        <ul>
+          <% @profile.subjects.each do | subject | %>
+            <li><%= subject.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% elsif @profile.personal_profile? %>
+    <p class="school_profile school_profile--empty">
+      学校プロフィールがありません。
+    </p>
+  <% end %>
+
+  <% if @profile.personal_profile? %>
+    <div class="personal_profile">
+      <div class="definition_list">
+        <% if @profile.nickname.present? %>
+          <span class="definition_list__term">ニックネーム</span>
+          <span><%= @profile.nickname %></span>
+        <% end %>
+        <% if @profile.work.present? %>
+          <span class="definition_list__term">仕事</span>
+          <span><%= @profile.work %></span>
+        <% end %>
+        <% if @profile.hobby.present? %>
+          <span class="definition_list__term">趣味</span>
+          <span><%= @profile.hobby %></span>
+        <% end %>
+        <% if @profile.favorite_food.present? %>
+          <span class="definition_list__term">好きな食べ物</span>
+          <span><%= @profile.favorite_food %></span>
+        <% end %>
+        <% if @profile.hated_food.present? %>
+          <span class="definition_list__term">嫌いな食べ物</span>
+          <span><%= @profile.hated_food %></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

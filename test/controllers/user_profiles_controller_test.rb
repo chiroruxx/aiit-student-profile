@@ -13,4 +13,9 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
     get user_profiles_path
     user_profiles_path :success
   end
+
+  test 'should get show' do
+    get user_profile_path(UserProfile.last)
+    user_profiles_path :success
+  end
 end
