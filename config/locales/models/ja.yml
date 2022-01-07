@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user_profile: プロフ
+    attributes:
+      user_profile:
+        name: 名前
+        email: メールアドレス
+        major_subject: コース
+        started: 入学年
+    errors:
+      models:
+        user_profile:
+          attributes:
+            email:
+              format: "%{message}"
+              blank: "%{attribute}を入力してください"
+              empty: "%{attribute}を入力してください"
+              invalid: 有効な%{attribute}を入力してください
