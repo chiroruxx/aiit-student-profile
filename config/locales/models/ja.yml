@@ -17,3 +17,8 @@ ja:
               blank: "%{attribute}を入力してください"
               empty: "%{attribute}を入力してください"
               invalid: 有効な%{attribute}を入力してください
+            major_subject:
+              format: "%{attribute}%{message}"
+              blank: を選択してください
+              empty: を選択してください
+           
