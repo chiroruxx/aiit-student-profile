@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      user_profile: プロフ
+      user_profile: プロフィール
     attributes:
       user_profile:
         name: 名前
@@ -13,12 +13,12 @@ ja:
         user_profile:
           attributes:
             email:
-              format: "%{message}"
+              format: "%{message}。"
               blank: "%{attribute}を入力してください"
               empty: "%{attribute}を入力してください"
               invalid: 有効な%{attribute}を入力してください
             major_subject:
-              format: "%{attribute}%{message}"
+              format: "%{attribute}%{message}。"
               blank: を選択してください
               empty: を選択してください
            
