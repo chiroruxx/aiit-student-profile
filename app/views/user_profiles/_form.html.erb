@@ -32,7 +32,7 @@
       <%= f.select(:major_subject, 
                   @major_subject.map{ |value| [value, value] },
                   { :prompt => '選択してください' },
-                  { :class => 'form-control' })
+                  { :class => 'form-select' })
                   %>
       <% if @user_profile.errors.include?(:major_subject) %>
         <div class="error_message_container">
