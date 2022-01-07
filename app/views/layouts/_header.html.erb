@@ -5,7 +5,7 @@
     </a>
     <nav>
       <ul class="header_menu nav navbar-nav navbar-right">
-        <% if not ( params[:controller]=='user_profiles' && %w(new edit).include?(params[:action]) ) %>
+        <% if not ( params[:controller]=='user_profiles' && %w(new edit create).include?(params[:action]) ) %>
           <li>
           <%= link_to register_path do %>
               <span class="material-icons">edit</span>
