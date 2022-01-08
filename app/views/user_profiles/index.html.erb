@@ -14,7 +14,9 @@
           <%== major_subject_icon(user.major_subject) %>
           <span class="major_subject_name"><%= user.major_subject %></span>
         </span>
-        <span class="other"><%= user.other.truncate(200) %></span>
+        <% if user.other.present? %>
+          <span class="other"><%= user.other.truncate(200) %></span>
+        <% end %>
       </span>
     </li>
   <% end %>

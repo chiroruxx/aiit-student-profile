@@ -30,7 +30,7 @@ class UserProfilesController < ApplicationController
   end
 
   def show
-    @user = UserProfile.find_by(user_id: params[:id])
+    @profile = UserProfile.find(params[:id])
   end
 
   def edit

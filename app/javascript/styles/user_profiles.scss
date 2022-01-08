@@ -120,3 +120,98 @@
     box-shadow: 0 4px 4px $shadow;
   }
 }
+
+// show
+.base_profile {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 4rem;
+
+  &__photo {
+    width: 256px;
+
+    &.material-icons {
+      font-size: 256px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+  }
+
+  &__name {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+}
+
+.base_profile_list {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  &__item {
+    display: inline-block;
+    margin-right: 2rem;
+    color: $text-weak;
+
+    .material-icons {
+      margin-right: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+.profile_two_column_layout {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: flex-end;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+.school_profile {
+  flex: 1 1 auto;
+
+  &__heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $text-weak;
+    margin-bottom: 1rem;
+
+    .material-icons {
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__content {
+    margin-bottom: 2rem;
+  }
+
+  &--empty {
+    color: $text-weak;
+    font-style: italic;
+  }
+}
+
+.personal_profile {
+  flex: 0 1 auto;
+  max-width: 24rem;
+  background-color: $base-weak;
+  border-radius: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.definition_list {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  row-gap: 0.5rem;
+
+  &__term {
+    color: $text-weak;
+    font-weight: 700;
+  }
+}
