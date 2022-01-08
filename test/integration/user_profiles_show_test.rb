@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class UserProfilesShowTest < ActionDispatch::IntegrationTest
-  test 'show user' do
+  test 'show full contents user' do
     profile = user_profiles(:one)
 
     get user_profile_path(profile)
@@ -29,6 +29,14 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
     profile.subjects.each do |subject|
       assert_match subject.name, @response.body
     end
+  end
+
+  test 'show minimum contents user' do
+    profile = user_profiles(:minimum_contents)
+
+    get user_profile_path(profile)
+
+    assert_response :success
   end
 
   test 'show 2 header menu items in profile show page.' do
