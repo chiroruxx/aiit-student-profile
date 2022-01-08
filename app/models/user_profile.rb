@@ -5,6 +5,7 @@ class UserProfile < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :user_profile_subjects, dependent: :destroy
   has_many :subjects, through: :user_profile_subjects
+  has_one_attached :image
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 

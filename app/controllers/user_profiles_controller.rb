@@ -21,6 +21,7 @@ class UserProfilesController < ApplicationController
     @user.save
     # @user_profile = current_user.build_user_profile(profile_params)
     @user_profile = @user.build_user_profile(profile_params)
+    @user_profile.image.attach(params[:user_profile][:image])
     if @user_profile.save
       redirect_to user_profiles_path
     else
@@ -47,6 +48,7 @@ class UserProfilesController < ApplicationController
       :name, :name_kana, :nickname, :email,
       :major_subject, :started, :work, :background, :pbl,
       :hobby, :favorite_food, :hated_food, :other,
+      :image,
       subject_ids: []
     )
   end

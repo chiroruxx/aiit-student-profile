@@ -1,7 +1,13 @@
 <ul class="users">
   <% @user_profiles.each do |user| %>
     <li class="bg-palegreen">
-      <span class="material-icons account-icon">account_box</span>
+      <% if user.image.attached? %>
+        <span class="account-icon">
+          <%= image_tag user.image %>
+        </span>
+      <% else %>
+        <span class="material-icons account-icon">account_box</span>
+      <% end %>
       <span class="user-info">
         <span class="username"><%= link_to user.name, user %></span>
         <span class="major_subject">

@@ -11,52 +11,82 @@
 # It's strongly recommended that you check this file into your version control system.
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 2021_12_28_122135) do
+ActiveRecord::Schema.define(version: 2022_01_07_115803) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'subjects', force: :cascade do |t|
-    t.string 'name', limit: 128, null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table 'user_profile_subjects', force: :cascade do |t|
-    t.bigint 'user_profile_id', null: false
-    t.bigint 'subject_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['subject_id'], name: 'index_user_profile_subjects_on_subject_id'
-    t.index ['user_profile_id'], name: 'index_user_profile_subjects_on_user_profile_id'
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table 'user_profiles', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.string 'name', limit: 128, null: false
-    t.string 'name_kana', limit: 128
-    t.string 'nickname', limit: 128
-    t.string 'email', limit: 255, null: false
-    t.string 'major_subject', limit: 255, null: false
-    t.integer 'started', limit: 2, null: false
-    t.text 'work'
-    t.text 'background'
-    t.text 'hobby'
-    t.string 'pbl', limit: 128
-    t.string 'favorite_food', limit: 128
-    t.string 'hated_food', limit: 128
-    t.text 'other'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_user_profiles_on_user_id'
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", limit: 128, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key 'user_profile_subjects', 'subjects'
-  add_foreign_key 'user_profile_subjects', 'user_profiles'
-  add_foreign_key 'user_profiles', 'users'
+  create_table "user_profile_subjects", force: :cascade do |t|
+    t.bigint "user_profile_id", null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_user_profile_subjects_on_subject_id"
+    t.index ["user_profile_id"], name: "index_user_profile_subjects_on_user_profile_id"
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", limit: 128, null: false
+    t.string "name_kana", limit: 128
+    t.string "nickname", limit: 128
+    t.string "email", limit: 255, null: false
+    t.string "major_subject", limit: 255, null: false
+    t.integer "started", limit: 2, null: false
+    t.text "work"
+    t.text "background"
+    t.text "hobby"
+    t.string "pbl", limit: 128
+    t.string "favorite_food", limit: 128
+    t.string "hated_food", limit: 128
+    t.text "other"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_profile_subjects", "subjects"
+  add_foreign_key "user_profile_subjects", "user_profiles"
+  add_foreign_key "user_profiles", "users"
 end

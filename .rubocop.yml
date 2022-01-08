@@ -24,6 +24,7 @@ Style/Documentation:
 Style/StringLiterals:
   Exclude:
     - 'db/schema.rb'
+    - 'db/migrate/*'
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
@@ -40,6 +41,27 @@ Style/SymbolProc:
 Style/NumericLiterals:
   Exclude:
     - 'db/**/*'
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'db/migrate/*'
+Style/SymbolArray:
+  Exclude:
+    - 'db/migrate/*'
+Layout/LineLength:
+  Exclude:
+    - 'db/migrate/*'
+    - db/schema.rb
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - 'db/migrate/*'
+Style/WordArray:
+  Exclude:
+    - 'db/schema.rb'
+
+
 
 AllCops:
   NewCops: enable
