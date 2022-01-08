@@ -12,7 +12,7 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
     user_profiles.each do |user|
       assert_select 'span.username', text: user.name
       assert_select 'span.major_subject_name', text: user.major_subject
-      assert_select 'span.other', text: user.other.truncate(200)
+      assert_select 'span.other', text: user.other.truncate(200) if user.other.present?
     end
   end
 
