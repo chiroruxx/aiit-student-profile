@@ -9,14 +9,26 @@
   list-style: none;
   margin: 0;
   padding-left: 0;
-  li {
+  .user_profile {
     overflow: auto;
     margin: 1rem 0;
     box-shadow: 0 4px 4px $shadow;
-    .user-info {
-      position: fixed;
+    a {
+      display: flex;
+      text-decoration: none;
+    }
+    &__photo {
+      width: 80px;
+      height: 90px;
+      margin: 10px;
+      grid-gap: 4rem;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      background-color: white;
+    }
+    &__info {
       padding: 0.5rem;
-      .username > a {
+      .username {
         text-decoration: none;
         font-size: 2.25rem;
         font-weight: bold;
