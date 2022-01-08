@@ -30,4 +30,12 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
       assert_match subject.name, @response.body
     end
   end
+
+  test 'show 2 header menu items in profile show page.' do
+    get user_profile_path(UserProfile.last)
+
+    assert_response :success
+    assert_match '他のプロフを見る', @response.body
+    assert_match 'プロフを編集する', @response.body
+  end
 end
