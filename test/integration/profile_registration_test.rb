@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ProfileRegistrationTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:three)
+    @user = users(:no_profile)
   end
 
   test 'unsuccessful registration' do
@@ -14,7 +14,6 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
     assert_no_difference 'UserProfile.count' do
       post user_profiles_path, params: {
         user_profile: {
-          user_id: 3,
           name: '',
           email: '',
           major_subject: '',
@@ -29,17 +28,20 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
     # login and do not have user_profile
     get register_path
     assert_template 'user_profiles/new'
+    image = fixture_file_upload('test/fixtures/account_box.png', 'image/png')
     assert_difference 'UserProfile.count', 1 do
       post user_profiles_path, params: {
         user_profile: {
-          user_id: 3,
           name: 'man',
           email: 'man@man.com',
           major_subject: '情報アーキテクチャ',
-          started: '2021'
+          started: '2021',
+          image: image
         }
       }
     end
+    # assert @user.user_profile.image.attached?
+    assert User.last.user_profile.image.attached?
     assert_redirected_to user_profiles_path
   end
 end

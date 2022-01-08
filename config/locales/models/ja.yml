@@ -8,6 +8,7 @@ ja:
         email: メールアドレス
         major_subject: コース
         started: 入学年
+        image: プロフィール画像
     errors:
       models:
         user_profile:
@@ -21,4 +22,8 @@ ja:
               format: "%{attribute}%{message}。"
               blank: を選択してください
               empty: を選択してください
+            image:
+              format: "%{attribute}%{message}。"
+              content_type_invalid: はjpegまたはpng形式でアップロードしてください
+              file_size_out_of_range: は1MB以内にしてください
            

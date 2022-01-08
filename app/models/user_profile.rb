@@ -20,6 +20,8 @@ class UserProfile < ApplicationRecord
   validates :pbl, length: { maximum: 128 }, allow_nil: true
   validates :favorite_food, length: { maximum: 128 }, allow_nil: true
   validates :hated_food, length: { maximum: 128 }, allow_nil: true
+  validates :image, content_type: { in: %w[image/jpeg image/png] },
+                    size: { less_than: 1.megabytes }
 
   def personal_profile?
     nickname.present? && work.present? && hobby.present? && favorite_food.present? && hated_food.present?
