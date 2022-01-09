@@ -1,15 +1,20 @@
 <ul class="users">
-  <% @user_profiles.each do |user| %>
-    <li class="bg-palegreen">
-      <span class="material-icons account-icon">account_box</span>
-      <span class="user-info">
-        <span class="username"><%= link_to user.name, user %></span>
-        <span class="major_subject">
-          <%== major_subject_icon(user.major_subject) %>
-          <span class="major_subject_name"><%= user.major_subject %></span>
-        </span>
-        <span class="other"><%= user.other.truncate(200) %></span>
-      </span>
+  <% @user_profiles.each do |user_profile| %>
+    <li class="bg-palegreen user_profile">
+      <a href="<%= user_profile_path(user_profile) %>">
+        <%# ユーザーアイコン登録実装後差し替える %>
+        <img src="https://1.bp.blogspot.com/-3YfJ5FDIfB0/Wn1V7_0bdfI/AAAAAAABKGc/NJMDAsrSGBEkWEpaxBjBujsXHqOXEx3pACLcBGAs/s400/hyoujou_shinda_me_man.png" alt="" class="user_profile__photo">
+        <div class="user_profile__info">
+          <span class="username"><%= user_profile.name %></span>
+          <span class="major_subject">
+            <%== major_subject_icon(user_profile.major_subject) %>
+            <span class="major_subject_name"><%= user_profile.major_subject %></span>
+          </span>
+          <% if user_profile.other.present? %>
+            <span class="other"><%= user_profile.other.truncate(200) %></span>
+          <% end %>
+        </div>
+      </a>
     </li>
   <% end %>
 </ul>

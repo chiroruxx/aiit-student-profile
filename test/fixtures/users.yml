@@ -24,3 +24,9 @@ three:
   name: Kiyomi Oyama
   uid: 100000000000000000002
   email: oyama_kiyomi_test@example.com
+four:
+  id: 4
+  provider: Google
+  name: xxxx
+  uid: 100000000000000000003
+  email: xxxx@example.com
