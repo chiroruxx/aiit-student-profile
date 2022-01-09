@@ -6,7 +6,21 @@
 #
 one:
   id: 1
+  provider: Google
+  name: Taro Yamada
+  uid: 100000000000000000000
+  email: taro@example.com
+
 two:
   id: 2
+  provider: Google
+  name: Hanako Satoh
+  uid: 100000000000000000001
+  email: hanako@example.com
+
 three:
   id: 3
+  provider: Google
+  name: Kiyomi Oyama
+  uid: 100000000000000000002
+  email: oyama_kiyomi_test@example.com
