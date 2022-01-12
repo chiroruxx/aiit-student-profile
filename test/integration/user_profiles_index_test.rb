@@ -3,6 +3,15 @@
 require 'test_helper'
 
 class UserProfilesIndexTest < ActionDispatch::IntegrationTest
+  setup do
+    OmniAuth.config.test_mode = true
+    sign_in
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
+  end
+
   test 'show user list' do
     # login and do not have user_profile
     get user_profiles_path

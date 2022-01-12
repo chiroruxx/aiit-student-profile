@@ -3,8 +3,15 @@
 require 'test_helper'
 
 class ProfileRegistrationTest < ActionDispatch::IntegrationTest
-  def setup
+  setup do
+    OmniAuth.config.test_mode = true
+    sign_in
+
     @user = users(:three)
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
   end
 
   test 'unsuccessful registration' do

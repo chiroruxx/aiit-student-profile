@@ -13,5 +13,21 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def setup_omniauth_mock
+      OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+        provider: 'google_oauth2',
+        uid: '12345678910',
+        email: 'mock@example.com',
+        info: {
+          name: 'mockuser',
+          image: "https://test.com/test.png"
+        }
+      })
+    end
+
+    def sign_in
+      OmniAuth.config.mock_auth[:google_oauth2] = nil
+      Rails.application.env_config['omniauth.auth'] = setup_omniauth_mock
+    end
   end
 end

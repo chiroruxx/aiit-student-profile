@@ -3,6 +3,15 @@
 require 'test_helper'
 
 class UserProfilesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    OmniAuth.config.test_mode = true
+    sign_in
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
+  end
+
   test 'should get new' do
     get register_path
     assert_response :success

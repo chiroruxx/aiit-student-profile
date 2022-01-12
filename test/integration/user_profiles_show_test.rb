@@ -3,6 +3,15 @@
 require 'test_helper'
 
 class UserProfilesShowTest < ActionDispatch::IntegrationTest
+  setup do
+    OmniAuth.config.test_mode = true
+    sign_in
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
+  end
+
   test 'show full contents user' do
     profile = user_profiles(:one)
 
