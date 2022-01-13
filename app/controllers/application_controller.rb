@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Model for User
+# ApplicationController is a class that inherits from ActionController::Base
 class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :signed_in
