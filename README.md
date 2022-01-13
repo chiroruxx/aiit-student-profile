@@ -12,11 +12,12 @@ $ docker-compose up
 
 はじめて環境を構築するときのみ、必要な手順です。
 
-Build the container(for Mac M1):
-
+Set environment:
 ```zsh
-$ docker-compose -f docker-compose.m1.yml build
+$ cp .env.example .env
 ```
+
+使用しているマシンが arm(M1 Mac など) の場合、 env の値を修正してください。
 
 Install webpacker:
 
