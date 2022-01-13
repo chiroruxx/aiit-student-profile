@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   def signed_in
     return if current_user
 
-    # redirect_to root_path
+    redirect_to root_path
   end
 end
