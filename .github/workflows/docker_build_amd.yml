@@ -1,6 +1,9 @@
 name: Docker build amd
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   push_to_registry:
