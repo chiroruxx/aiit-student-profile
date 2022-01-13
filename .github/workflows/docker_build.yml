@@ -1,0 +1,39 @@
+name: Docker build
+
+on: push
+
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+
+      - name: Setup Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache-amd
+          key: ${{ github.ref }}
+          restore-keys: ${{ github.ref }}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          platforms: linux/amd64
+          tags: chiroruxx/aiit_student_profule:amd-${{ github.sha }},chiroruxx/aiit_student_profule:amd-latest
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-from: type=local,src=/tmp/.buildx-cache-amd
+          cache-to: type=local,dest=/tmp/.buildx-cache-amd
