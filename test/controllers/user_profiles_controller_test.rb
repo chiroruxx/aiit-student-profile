@@ -13,18 +13,23 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get register_path
-    assert_response :success
+    if signed_in
+      get register_path
+      assert_response :success
+    end
   end
 
   test 'should get index' do
-    # TODO: should redirect login_index when not logged in
-    get user_profiles_path
-    user_profiles_path :success
+    if signed_in
+      get user_profiles_path
+      user_profiles_path :success
+    end
   end
 
   test 'should get show' do
-    get user_profile_path(UserProfile.last)
-    user_profiles_path :success
+    if signed_in
+      get user_profile_path(UserProfile.last)
+      user_profiles_path :success
+    end
   end
 end

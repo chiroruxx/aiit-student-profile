@@ -29,5 +29,9 @@ module ActiveSupport
       OmniAuth.config.mock_auth[:google_oauth2] = nil
       Rails.application.env_config['omniauth.auth'] = setup_omniauth_mock
     end
+
+    def signed_in
+      nil if Rails.application.env_config['omniauth.auth']
+    end
   end
 end
