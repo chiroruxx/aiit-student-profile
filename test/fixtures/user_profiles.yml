@@ -58,3 +58,19 @@ minimum_contents:
   email: test@example.com
   major_subject: 創造技術
   started: 2021
+
+<% (100..120).each do |idx| %> 
+test_user_<%= idx %>:
+  user_id: <%= idx %>
+  name: test_name_<%= idx %>
+  email: test@example.com
+  major_subject: 創造技術
+  started: 2021
+<% end %>
+
+next_page_user:
+  user_id: 121
+  name: 田中 太郎
+  email: test@example.com
+  major_subject: 創造技術
+  started: 2022

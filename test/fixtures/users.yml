@@ -12,3 +12,8 @@ three:
   id: 3
 four:
   id: 4
+
+<% (100..121).each do |idx| %> 
+user_<%= idx %>:
+  id: <%= idx  %>
+<% end %>
