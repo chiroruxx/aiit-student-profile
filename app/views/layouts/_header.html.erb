@@ -7,7 +7,7 @@
       <ul class="header_menu navbar-nav">
         <% unless params[:controller] == 'user_profiles' && params[:action] == 'list' %>
           <li class="nav-item">
-            <%= link_to register_path, class: 'nav-link' do %>
+            <%= link_to user_profiles_path, class: 'nav-link' do %>
               <span class="material-icons">list</span>
               他のプロフを見る
             <% end %>
