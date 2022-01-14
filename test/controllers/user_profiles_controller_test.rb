@@ -13,21 +13,21 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    if signed_in
+    if signed_in?
       get register_path
       assert_response :success
     end
   end
 
   test 'should get index' do
-    if signed_in
+    if signed_in?
       get user_profiles_path
       user_profiles_path :success
     end
   end
 
   test 'should get show' do
-    if signed_in
+    if signed_in?
       get user_profile_path(UserProfile.last)
       user_profiles_path :success
     end

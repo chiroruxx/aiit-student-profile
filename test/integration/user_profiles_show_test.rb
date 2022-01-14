@@ -13,7 +13,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
   end
 
   test 'show full contents user' do
-    if signed_in
+    if signed_in?
       profile = user_profiles(:one)
 
       get user_profile_path(profile)
@@ -43,7 +43,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
   end
 
   test 'show minimum contents user' do
-    if signed_in
+    if signed_in?
       profile = user_profiles(:minimum_contents)
 
       get user_profile_path(profile)
@@ -53,7 +53,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
   end
 
   test 'show 2 header menu items in profile show page.' do
-    if signed_in
+    if signed_in?
       get user_profile_path(UserProfile.last)
 
       assert_response :success

@@ -16,7 +16,7 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
 
   test 'unsuccessful registration' do
     # login and do not have user_profile
-    if signed_in
+    if signed_in?
       get register_path
       assert_template 'user_profiles/new'
       assert_no_difference 'UserProfile.count' do
@@ -36,7 +36,7 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
 
   test 'successful registration' do
     # login and do not have user_profile
-    if signed_in
+    if signed_in?
       get register_path
       assert_template 'user_profiles/new'
       assert_difference 'UserProfile.count', 1 do

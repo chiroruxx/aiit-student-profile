@@ -14,7 +14,7 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
 
   test 'show user list' do
     # login and do not have user_profile
-    if signed_in
+    if signed_in?
       get user_profiles_path
       assert_equal 200, status
       assert_template 'user_profiles/index'
@@ -31,7 +31,7 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
     get user_profiles_path
     get register_path
     get sign_out_path
-    if signed_in
+    if signed_in?
       assert_select 'a[href=?]', user_profiles_path
       assert_select 'a[href=?]', register_path
       assert_select 'a[href=?]', sign_out_path
