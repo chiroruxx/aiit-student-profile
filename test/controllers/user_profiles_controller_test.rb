@@ -5,7 +5,6 @@ require 'test_helper'
 class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   setup do
     OmniAuth.config.test_mode = true
-    sign_in
   end
 
   teardown do
@@ -13,6 +12,7 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
+    sign_in
     if signed_in?
       get register_path
       assert_response :success
@@ -20,6 +20,7 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
+    sign_in
     if signed_in?
       get user_profiles_path
       user_profiles_path :success
@@ -27,9 +28,16 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    if signed_in?
-      get user_profile_path(UserProfile.last)
-      user_profiles_path :success
-    end
+    profile = UserProfile.last
+    sign_in_as profile.user
+
+    get user_profile_path(profile)
+    user_profiles_path :success
+  end
+
+  test 'redirect if not logged in' do
+    get user_profile_path(UserProfile.last)
+
+    assert_redirected_to root_path
   end
 end
