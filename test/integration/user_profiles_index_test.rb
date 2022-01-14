@@ -27,7 +27,7 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
     assert_not @response.body.include? profile.name
   end
 
-  test "index including pagination" do
+  test 'index including pagination' do
     get user_profiles_path
     assert_template 'user_profiles/index'
     assert_select 'nav.pagination'
@@ -38,6 +38,4 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', user_profiles_path
     assert_select 'a[href=?]', register_path
   end
-
- 
 end
