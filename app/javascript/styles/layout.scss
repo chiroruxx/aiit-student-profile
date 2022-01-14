@@ -38,4 +38,10 @@
 .main_content {
   margin-top: 2.25rem;
   margin-bottom: 2.25rem;
+
+  &--full {
+    width: 100vw;
+    height: 100vh;
+    background-color: $base-weak;
+  }
 }
