@@ -29,8 +29,6 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
 
   test 'header links' do
     get user_profiles_path
-    get register_path
-    get sign_out_path
     if signed_in?
       assert_select 'a[href=?]', user_profiles_path
       assert_select 'a[href=?]', register_path

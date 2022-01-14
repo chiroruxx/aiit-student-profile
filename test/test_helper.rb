@@ -41,6 +41,7 @@ module ActiveSupport
       Rails.application.env_config['omniauth.auth'] = nil
       setup_omniauth_mock
       Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
+      get '/auth/google_oauth2/callback'
     end
 
     def sign_in_as(user)
