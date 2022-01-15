@@ -5,10 +5,10 @@ class ErrorsController < ApplicationController
   layout 'full'
 
   def show
-    status_code = params[:code] || 500
-    @message = message(status_code)
+    @status_code = params[:code] || 500
+    @message = message(@status_code)
 
-    render 'default', status: status_code
+    render 'default', status: @status_code
   end
 
   private
