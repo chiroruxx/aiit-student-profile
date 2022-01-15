@@ -4,6 +4,7 @@ require 'test_helper'
 
 class UserProfileTest < ActiveSupport::TestCase
   def setup
+    @user = user(:one)
     @user_profile = user_profiles(:one)
     @subject = subjects(:one)
   end
