@@ -3,7 +3,7 @@
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
-#
+
 one:
   id: 1
   provider: Google
@@ -24,6 +24,7 @@ three:
   name: Kiyomi Oyama
   uid: 100000000000000000002
   email: oyama_kiyomi_test@example.com
+
 four:
   id: 4
   provider: Google

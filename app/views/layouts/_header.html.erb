@@ -5,20 +5,32 @@
     </a>
     <nav class="navbar navbar-expand-lg">
       <ul class="header_menu navbar-nav">
-        <% unless params[:controller] == 'user_profiles' && params[:action] == 'list' %>
+        <% if current_user %>
+          <% unless params[:controller] == 'user_profiles' && params[:action] == 'list' %>
+            <li class="nav-item">
+              <%= link_to register_path, class: 'nav-link' do %>
+                <span class="material-icons">list</span>
+                他のプロフを見る
+              <% end %>
+            </li>
+          <% end %>
+          <% unless params[:controller] == 'user_profiles' && %w(new edit create).include?(params[:action]) %>
+           <li class="nav-item">
+             <%= link_to register_path, class: 'nav-link' do %>
+               <span class="material-icons">edit</span>
+               プロフを編集する
+             <% end %>
+            </li>
+          <% end %>
           <li class="nav-item">
-            <%= link_to register_path, class: 'nav-link' do %>
-              <span class="material-icons">list</span>
-              他のプロフを見る
+            <%= link_to sign_out_path, class: 'nav-link' do %>
+              <span class="material-icons">logout</span>
+              <%= current_user.name %> Sign out
             <% end %>
           </li>
-        <% end %>
-        <% unless params[:controller] == 'user_profiles' && %w(new edit create).include?(params[:action]) %>
+        <% else %>
           <li class="nav-item">
-            <%= link_to register_path, class: 'nav-link' do %>
-              <span class="material-icons">edit</span>
-              プロフを編集する
-            <% end %>
+            <%= link_to 'Sign in with Google', '/auth/google_oauth2', method: :post %>
           </li>
         <% end %>
       </ul>
