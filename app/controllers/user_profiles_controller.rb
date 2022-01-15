@@ -17,7 +17,12 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    @user = User.new
+    @user = User.new({
+                       name: 'test',
+                       provider: 'test',
+                       uid: 'test',
+                       email: 'test'
+                     })
     @user.save
     # @user_profile = current_user.build_user_profile(profile_params)
     @user_profile = @user.build_user_profile(profile_params)
