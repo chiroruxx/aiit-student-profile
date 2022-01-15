@@ -3,17 +3,34 @@
 require 'test_helper'
 
 class UserProfilesIndexTest < ActionDispatch::IntegrationTest
+  def setup
+    @user_profile = user_profiles(:next_page_user)
+  end
+
   test 'show user list' do
     # login and do not have user_profile
     get user_profiles_path
     assert_equal 200, status
     assert_template 'user_profiles/index'
-    assert_select 'ul.users > li', count: user_profiles.count
-    user_profiles.each do |user|
-      assert_select 'span.username', text: user.name
-      assert_select 'span.major_subject_name', text: user.major_subject
-      assert_select 'span.other', text: user.other.truncate(200) if user.other.present?
+    # max_per_page 10
+    assert_select 'ul.users > li', count: 10
+    10.times do |i|
+      assert_select 'span.username', text: user_profiles[i].name
+      assert_select 'span.major_subject_name', text: user_profiles[i].major_subject
+      assert_select 'span.other', text: user_profiles[i].other.truncate(200) if user_profiles[i].other.present?
     end
+  end
+
+  test 'pagination test' do
+    profile = user_profiles(:next_page_user)
+    get user_profiles_path
+    assert_not @response.body.include? profile.name
+  end
+
+  test 'index including pagination' do
+    get user_profiles_path
+    assert_template 'user_profiles/index'
+    assert_select 'nav.pagination'
   end
 
   test 'header links' do

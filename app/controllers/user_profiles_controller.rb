@@ -7,7 +7,7 @@ class UserProfilesController < ApplicationController
   # before_action ... , only: %i[edit update] # correct user?
 
   def index
-    @user_profiles = UserProfile.all
+    @user_profiles = UserProfile.all.page(params[:page])
   end
 
   def new
