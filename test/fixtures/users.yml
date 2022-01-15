@@ -31,3 +31,8 @@ four:
   name: xxxx
   uid: 100000000000000000003
   email: xxxx@example.com
+
+<% (100..121).each do |idx| %> 
+user_<%= idx %>:
+  id: <%= idx  %>
+<% end %>

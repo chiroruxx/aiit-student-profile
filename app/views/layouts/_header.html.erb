@@ -16,7 +16,7 @@
           <% end %>
           <% unless params[:controller] == 'user_profiles' && %w(new edit create).include?(params[:action]) %>
            <li class="nav-item">
-             <%= link_to register_path, class: 'nav-link' do %>
+             <%= link_to user_profiles_path, class: 'nav-link' do %>
                <span class="material-icons">edit</span>
                プロフを編集する
              <% end %>
