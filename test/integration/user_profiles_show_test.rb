@@ -3,8 +3,17 @@
 require 'test_helper'
 
 class UserProfilesShowTest < ActionDispatch::IntegrationTest
+  setup do
+    OmniAuth.config.test_mode = true
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
+  end
+
   test 'show full contents user' do
     profile = user_profiles(:one)
+    sign_in_as profile.user
 
     get user_profile_path(profile)
 
@@ -33,6 +42,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
 
   test 'show minimum contents user' do
     profile = user_profiles(:minimum_contents)
+    sign_in_as profile.user
 
     get user_profile_path(profile)
 
@@ -40,7 +50,10 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
   end
 
   test 'show 2 header menu items in profile show page.' do
-    get user_profile_path(UserProfile.last)
+    profile = UserProfile.last
+    sign_in_as profile.user
+
+    get user_profile_path(profile)
 
     assert_response :success
     assert_match '他のプロフを見る', @response.body

@@ -5,7 +5,6 @@ class UserProfilesController < ApplicationController
   before_action :set_info, only: %i[new create edit]
   # before_action ... , only: %i[index new create edit update] # logged in?
   # before_action ... , only: %i[edit update] # correct user?
-  skip_before_action :signed_in, only: :index
 
   def index
     @user_profiles = UserProfile.all
@@ -18,7 +17,12 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    @user = User.new
+    @user = User.new({
+                       name: 'test',
+                       provider: 'test',
+                       uid: 'test',
+                       email: 'test'
+                     })
     @user.save
     # @user_profile = current_user.build_user_profile(profile_params)
     @user_profile = @user.build_user_profile(profile_params)
