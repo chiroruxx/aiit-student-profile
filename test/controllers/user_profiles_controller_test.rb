@@ -40,11 +40,4 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
-
-  test 'assoicated user_profile should be destroyed' do
-    user = users(:one)
-    assert_difference 'UserProfile.count', -1 do
-      user.destroy
-    end
-  end
 end
