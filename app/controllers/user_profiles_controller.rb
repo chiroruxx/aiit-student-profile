@@ -3,7 +3,7 @@
 # Controller for create and edit UserProfile
 class UserProfilesController < ApplicationController
   before_action :set_info, only: %i[new create edit]
-  # before_action ... , only: %i[index new create edit update] # logged in?
+  before_action :signed_in, only: %i[index new create show edit update]
   # before_action ... , only: %i[edit update] # correct user?
 
   def index
@@ -11,21 +11,16 @@ class UserProfilesController < ApplicationController
   end
 
   def new
-    @user = User.new
-    # @user_profile = current_user.build_user_profile
-    @user_profile = @user.build_user_profile
+    if current_user.is_registered?
+      redirect_to user_profiles_path # temp
+    else
+      @user_profile = current_user.build_user_profile
+      @user_profile.name = current_user.name
+    end
   end
 
   def create
-    @user = User.new({
-                       name: 'test',
-                       provider: 'test',
-                       uid: 'test',
-                       email: 'test'
-                     })
-    @user.save
-    # @user_profile = current_user.build_user_profile(profile_params)
-    @user_profile = @user.build_user_profile(profile_params)
+    @user_profile = current_user.build_user_profile(profile_params)
     if @user_profile.save
       redirect_to user_profiles_path
     else
@@ -38,9 +33,11 @@ class UserProfilesController < ApplicationController
   end
 
   def edit
-    @user = User.last
-    # @user_profile = current_user.user_profile
-    @user_profile = @user.user_profile
+    if current_user.is_registered?
+      @user_profile = current_user.user_profile
+    else
+      redirect_to register_path
+    end
   end
 
   def update; end
