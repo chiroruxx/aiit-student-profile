@@ -4,8 +4,8 @@ require 'test_helper'
 
 class UserProfileTest < ActiveSupport::TestCase
   def setup
-    @user = user(:one)
-    @user_profile = user_profiles(:one)
+    @user = users(:one)
+    @user_profile = @user.user_profile
     @subject = subjects(:one)
   end
 
@@ -73,7 +73,6 @@ class UserProfileTest < ActiveSupport::TestCase
 
   test 'assoicated profile_subjects should be destroyed' do
     @user_profile.save
-    @subject.save
     @user_profile.user_profile_subjects.create!(subject_id: @subject.id)
     assert_difference 'UserProfileSubject.count', -1 do
       @user_profile.destroy
