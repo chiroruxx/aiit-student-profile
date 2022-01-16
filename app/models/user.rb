@@ -23,4 +23,8 @@ class User < ApplicationRecord
       }
     end
   end
+
+  def is_registered?
+    !self.user_profile.nil?
+  end
 end
