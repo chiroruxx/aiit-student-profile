@@ -2,7 +2,7 @@
 
 # User is a class that inherits from ApplicationRecord
 class User < ApplicationRecord
-  has_one :user_profile
+  has_one :user_profile, dependent: :destroy
   class << self
     def find_or_create_from_auth_hash(auth_hash)
       user_params = user_params_from_auth_hash(auth_hash)
