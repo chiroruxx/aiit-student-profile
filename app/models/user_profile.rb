@@ -2,7 +2,8 @@
 
 # model for UserProfile
 class UserProfile < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
+  validates :user_id, presence: true
   has_many :user_profile_subjects, dependent: :destroy
   has_many :subjects, through: :user_profile_subjects
 
