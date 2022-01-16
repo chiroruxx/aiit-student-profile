@@ -71,7 +71,7 @@ class UserProfileTest < ActiveSupport::TestCase
 
   # work, backgroud, hobby, other
 
-  test 'assoicated profile_subjects should be destroyed' do
+  test 'assoicated user_profile_subjects should be destroyed' do
     @user_profile.save
     @user_profile.user_profile_subjects.create!(subject_id: @subject.id)
     assert_difference 'UserProfileSubject.count', -1 do
