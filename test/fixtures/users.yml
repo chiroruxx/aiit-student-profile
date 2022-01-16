@@ -35,4 +35,8 @@ four:
 <% (100..121).each do |idx| %> 
 user_<%= idx %>:
   id: <%= idx  %>
+  provider: Google
+  name: 'mockuser'
+  uid: 12345678910,
+  email: mock@example.com
 <% end %>
