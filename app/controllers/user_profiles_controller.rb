@@ -11,7 +11,7 @@ class UserProfilesController < ApplicationController
   end
 
   def new
-    if current_user.is_registered?
+    if current_user.profile_registered?
       redirect_to user_profiles_path # temp
     else
       @user_profile = current_user.build_user_profile
@@ -33,7 +33,7 @@ class UserProfilesController < ApplicationController
   end
 
   def edit
-    if current_user.is_registered?
+    if current_user.profile_registered?
       @user_profile = current_user.user_profile
     else
       redirect_to register_path
