@@ -11,10 +11,9 @@ class UserProfilesController < ApplicationController
   end
 
   def new
-    if !current_user.profile_registered?
-      @user_profile = current_user.build_user_profile
-      @user_profile.name = current_user.name
-    else
+    @user_profile = current_user.build_user_profile
+    @user_profile.name = current_user.name
+    if current_user.profile_registered?
       redirect_to user_profiles_path # temp
     end
   end
