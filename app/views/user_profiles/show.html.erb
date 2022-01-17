@@ -1,12 +1,11 @@
 <% content_for(:title, @profile.name + ' さんのプロフィール') %>
 
 <div class="base_profile">
-  <%#= if @profile.has_image %>
-  <%# ログイン後に差し替える %>
-  <img src="https://1.bp.blogspot.com/-3YfJ5FDIfB0/Wn1V7_0bdfI/AAAAAAABKGc/NJMDAsrSGBEkWEpaxBjBujsXHqOXEx3pACLcBGAs/s400/hyoujou_shinda_me_man.png" alt="" class="base_profile__photo">
-  <%# else %>
-  <%# <span class="base_profile__photo material-icons">account_box</span> %>
-  <%# endif %>
+  <% if @profile.user.image.present? %>
+    <img src="<%= @profile.user.image %>" alt="" class="base_profile__photo">
+  <% else %>
+    <span class="base_profile__photo material-icons">account_box</span>
+  <% end %>
   <div class="base_profile__info">
     <% if @profile.name_kana.present? %>
       <span><%=  @profile.name_kana  %></span>
