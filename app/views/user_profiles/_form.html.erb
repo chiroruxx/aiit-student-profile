@@ -55,10 +55,8 @@
       <%= f.label :other, '自己紹介' %>
       <%= f.text_area :other, placeholder: "こんにちは！\n情報アーキテクトとプロジェクトマネジメントに興味があります。\nよろしくおねがいします。", rows: 5, class: 'form-control' %>
 
-      <div>
-      プロフィール画像
-      ...
-      </div>
+      <label>プロフィール画像</label>
+      <%= image_tag current_user.image, class: 'user_profile_img' %>
     </div>
 
     <div class="field_group">

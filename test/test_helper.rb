@@ -50,6 +50,10 @@ module ActiveSupport
       get '/auth/google_oauth2/callback'
     end
 
+    def sign_out
+      Rails.application.env_config['omniauth.auth'] = nil
+    end
+
     def signed_in?
       !Rails.application.env_config['omniauth.auth'].nil?
     end
