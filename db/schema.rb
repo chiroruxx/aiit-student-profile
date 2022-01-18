@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 2021_12_28_122135) do
   end
 
   create_table 'users', force: :cascade do |t|
+    t.string 'name', limit: 128, null: false
+    t.string 'provider', limit: 128, null: false
+    t.string 'uid', limit: 36, null: false
+    t.string 'email', limit: 255, null: false
+    t.string 'image'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end

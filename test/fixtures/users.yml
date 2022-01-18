@@ -3,17 +3,40 @@
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
-#
+
 one:
   id: 1
+  provider: Google
+  name: Taro Yamada
+  uid: 100000000000000000000
+  email: taro@example.com
+
 two:
   id: 2
+  provider: Google
+  name: Hanako Satoh
+  uid: 100000000000000000001
+  email: hanako@example.com
+
 three:
   id: 3
+  provider: Google
+  name: Kiyomi Oyama
+  uid: 100000000000000000002
+  email: oyama_kiyomi_test@example.com
+
 four:
   id: 4
+  provider: Google
+  name: xxxx
+  uid: 100000000000000000003
+  email: xxxx@example.com
 
 <% (100..121).each do |idx| %> 
 user_<%= idx %>:
   id: <%= idx  %>
+  provider: Google
+  name: 'mockuser'
+  uid: 12345678910,
+  email: mock@example.com
 <% end %>

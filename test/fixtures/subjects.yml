@@ -5,7 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   name: IoT開発特論
 
 two:
+  id: 2
   name: OSS特論
