@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   def create
     if (user = User.find_or_create_from_auth_hash(auth_hash))
       sign_in user
+      return redirect_to user_profiles_path
     end
     redirect_to root_path
   end
