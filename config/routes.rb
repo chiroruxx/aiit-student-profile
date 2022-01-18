@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[create destroy]
 
-  get 'register', to: 'user_profiles#new'
+  get 'profiles/edit', to: 'user_profiles#edit'
+  match 'profiles', to: 'user_profiles#update', via: %i[post patch]
 
-  resources :user_profiles
+  resources :user_profiles, path: :profiles, as: :profiles, only: %i[index show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   %w[400 404 500].each do |code|
