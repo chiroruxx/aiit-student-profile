@@ -5,5 +5,7 @@ class HomeController < ApplicationController
   layout 'full'
   skip_before_action :signed_in, only: :index
 
-  def index; end
+  def index
+    redirect_to user_profiles_path if current_user
+  end
 end
