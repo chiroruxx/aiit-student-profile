@@ -1,0 +1,41 @@
+.top {
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  height: 100%;
+
+  &__container {
+    height: 20rem;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  &__description {
+    text-align: center;
+  }
+}
+
+.top_button {
+  background-color: $accent-strong;
+  border: none;
+  box-shadow: 0 4px 4px $shadow;
+  color: $text-button;
+
+  &:hover {
+    background-color: $accent-strong;
+    color: $text-button;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: $text-button;
+    text-decoration: none;
+  }
+}

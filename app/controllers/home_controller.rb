@@ -2,6 +2,7 @@
 
 # HomeController is a class that inherits from ApplicationController
 class HomeController < ApplicationController
+  layout 'full'
   skip_before_action :signed_in, only: :index
 
   def index; end
