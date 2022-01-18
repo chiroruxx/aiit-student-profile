@@ -21,5 +21,4 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_redirected_to user_profiles_path
   end
-
 end
