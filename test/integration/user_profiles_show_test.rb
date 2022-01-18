@@ -15,7 +15,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
     profile = user_profiles(:one)
     sign_in_as profile.user
 
-    get user_profile_path(profile)
+    get profile_path(profile)
 
     assert_response :success
     assert_template 'user_profiles/show'
@@ -44,7 +44,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
     profile = user_profiles(:minimum_contents)
     sign_in_as profile.user
 
-    get user_profile_path(profile)
+    get profile_path(profile)
 
     assert_response :success
   end
@@ -53,7 +53,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
     profile = UserProfile.last
     sign_in_as profile.user
 
-    get user_profile_path(profile)
+    get profile_path(profile)
 
     assert_response :success
     assert_match '他のプロフを見る', @response.body

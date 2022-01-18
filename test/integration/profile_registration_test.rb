@@ -13,7 +13,7 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
 
   test 'should redirect register when not signed in' do
     sign_out
-    get register_path
+    get profiles_edit_path
     assert_not signed_in?
     assert_redirected_to root_path
   end
@@ -21,10 +21,10 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
   test 'unsuccessful registration' do
     sign_in
     # login and do not have user_profile
-    get register_path
-    assert_template 'user_profiles/new'
+    get profiles_edit_path
+    assert_template 'user_profiles/edit'
     assert_no_difference 'UserProfile.count' do
-      post user_profiles_path, params: {
+      post profiles_path, params: {
         user_profile: {
           name: '',
           email: '',
@@ -33,16 +33,16 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_template 'user_profiles/new'
+    assert_template 'user_profiles/edit'
   end
 
   test 'successful registration' do
     sign_in
     # login and do not have user_profile
-    get register_path
-    assert_template 'user_profiles/new'
+    get profiles_edit_path
+    assert_template 'user_profiles/edit'
     assert_difference 'UserProfile.count', 1 do
-      post user_profiles_path, params: {
+      post profiles_path, params: {
         user_profile: {
           name: 'mockuser',
           email: 'mock@example.com',
@@ -51,6 +51,6 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_redirected_to user_profiles_path
+    assert_redirected_to profile_path(UserProfile.last)
   end
 end
