@@ -46,7 +46,6 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
     if signed_in?
       assert_select 'a[href=?]', user_profiles_path
       assert_select 'a[href=?]', register_path
-      assert_select 'a[href=?]', sign_out_path
     end
   end
 end
