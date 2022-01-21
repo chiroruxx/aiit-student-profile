@@ -19,12 +19,16 @@
     }
     &__photo {
       width: 80px;
-      height: 90px;
+      height: 80px;
       margin: 10px;
       grid-gap: 4rem;
       flex-flow: column nowrap;
       justify-content: flex-end;
       background-color: white;
+
+      &.material-icons {
+        font-size: 80px;
+      }
     }
     &__info {
       padding: 0.5rem;
