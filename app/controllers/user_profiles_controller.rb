@@ -2,30 +2,11 @@
 
 # Controller for create and edit UserProfile
 class UserProfilesController < ApplicationController
-  before_action :set_info, only: %i[new create edit]
-  before_action :signed_in, only: %i[index new create show edit update]
-  # before_action ... , only: %i[edit update] # correct user?
+  before_action :set_info, only: %i[edit update]
+  before_action :signed_in, only: %i[index show edit update]
 
   def index
     @user_profiles = UserProfile.all.page(params[:page])
-  end
-
-  def new
-    if current_user.profile_registered?
-      redirect_to user_profiles_path # temp
-      return
-    end
-    @user_profile = current_user.build_user_profile
-    @user_profile.name = current_user.name
-  end
-
-  def create
-    @user_profile = current_user.build_user_profile(profile_params)
-    if @user_profile.save
-      redirect_to user_profiles_path
-    else
-      render 'new'
-    end
   end
 
   def show
@@ -36,11 +17,21 @@ class UserProfilesController < ApplicationController
     if current_user.profile_registered?
       @user_profile = current_user.user_profile
     else
-      redirect_to register_path
+      @user_profile = current_user.build_user_profile
+      @user_profile.name = current_user.name
     end
   end
 
-  def update; end
+  def update
+    @user_profile = current_user_profile
+    @user_profile.assign_attributes profile_params
+
+    if @user_profile.save
+      redirect_to profile_path @user_profile
+    else
+      render 'edit'
+    end
+  end
 
   private
 
@@ -56,5 +47,9 @@ class UserProfilesController < ApplicationController
   def set_info
     @major_subject = %w[事業設計工学 情報アーキテクチャ 創造技術]
     @subjects = Subject.all
+  end
+
+  def current_user_profile
+    current_user.profile_registered? ? current_user.user_profile : current_user.build_user_profile
   end
 end

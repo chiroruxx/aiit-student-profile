@@ -16,7 +16,7 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
   test 'show user list' do
     # login and do not have user_profile
     if signed_in?
-      get user_profiles_path
+      get profiles_path
       assert_equal 200, status
       assert_template 'user_profiles/index'
       # max_per_page 10
@@ -31,21 +31,21 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
 
   test 'pagination test' do
     profile = user_profiles(:next_page_user)
-    get user_profiles_path
+    get profiles_path
     assert_not @response.body.include? profile.name
   end
 
   test 'index including pagination' do
-    get user_profiles_path
+    get profiles_path
     assert_template 'user_profiles/index'
     assert_select 'nav.pagination'
   end
 
   test 'header links' do
-    get user_profiles_path
+    get profiles_path
     if signed_in?
-      assert_select 'a[href=?]', user_profiles_path
-      assert_select 'a[href=?]', register_path
+      assert_select 'a[href=?]', profiles_path
+      assert_select 'a[href=?]', profiles_edit_path
     end
   end
 end

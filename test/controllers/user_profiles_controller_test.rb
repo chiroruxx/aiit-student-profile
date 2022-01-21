@@ -14,7 +14,7 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
     sign_in
     if signed_in?
-      get register_path
+      get profiles_edit_path
       assert_response :success
     end
   end
@@ -22,8 +22,8 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     sign_in
     if signed_in?
-      get user_profiles_path
-      user_profiles_path :success
+      get profiles_path
+      profiles_path :success
     end
   end
 
@@ -31,12 +31,12 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
     profile = UserProfile.last
     sign_in_as profile.user
 
-    get user_profile_path(profile)
-    user_profiles_path :success
+    get profiles_path(profile)
+    profiles_path :success
   end
 
   test 'redirect if not logged in' do
-    get user_profile_path(UserProfile.last)
+    get profiles_path(UserProfile.last)
 
     assert_redirected_to root_path
   end
