@@ -2,6 +2,9 @@
 FROM ruby:2.7
 
 ARG lockfile="Gemfile.lock"
+ARG credential_key=""
+
+ENV RAILS_MASTER_KEY=$credential_key
 
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \

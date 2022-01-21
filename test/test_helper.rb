@@ -17,9 +17,9 @@ module ActiveSupport
       OmniAuth::AuthHash.new({
                                provider: user.provider,
                                uid: user.uid,
-                               email: user.email,
                                info: {
                                  name: user.name,
+                                 email: user.email,
                                  image: user.image
                                }
                              })
@@ -29,9 +29,9 @@ module ActiveSupport
       OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
                                                                            provider: 'google_oauth2',
                                                                            uid: '12345678910',
-                                                                           email: 'mock@example.com',
                                                                            info: {
                                                                              name: 'mockuser',
+                                                                             email: 'mock@example.com',
                                                                              image: 'https://test.com/test.png'
                                                                            }
                                                                          })

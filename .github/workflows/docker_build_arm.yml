@@ -39,7 +39,9 @@ jobs:
         with:
           push: true
           platforms: linux/arm64
-          build-args: lockfile=Gemfile.lock.m1
+          build-args: |
+            lockfile=Gemfile.lock.m1
+            credential_key=${{ secrets.RAILS_MASTER_KEY_DEV }}
           tags: chiroruxx/aiit_student_profule:arm-${{ github.sha }},chiroruxx/aiit_student_profule:arm-latest
           builder: ${{ steps.buildx.outputs.name }}
           cache-from: type=local,src=/tmp/.buildx-cache-arm

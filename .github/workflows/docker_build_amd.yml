@@ -36,6 +36,7 @@ jobs:
         with:
           push: true
           platforms: linux/amd64
+          build-args: credential_key=${{ secrets.RAILS_MASTER_KEY_DEV }}
           tags: chiroruxx/aiit_student_profule:amd-${{ github.sha }},chiroruxx/aiit_student_profule:amd-latest
           builder: ${{ steps.buildx.outputs.name }}
           cache-from: type=local,src=/tmp/.buildx-cache-amd

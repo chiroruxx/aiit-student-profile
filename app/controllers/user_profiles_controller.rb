@@ -23,15 +23,14 @@ class UserProfilesController < ApplicationController
   end
 
   def update
-    # if current_user.profile_registered?
-    @user_profile = current_user.build_user_profile(profile_params)
+    @user_profile = current_user_profile
+    @user_profile.assign_attributes profile_params
+
     if @user_profile.save
       redirect_to profile_path @user_profile
     else
       render 'edit'
     end
-    # else
-    # end
   end
 
   private
@@ -48,5 +47,9 @@ class UserProfilesController < ApplicationController
   def set_info
     @major_subject = %w[事業設計工学 情報アーキテクチャ 創造技術]
     @subjects = Subject.all
+  end
+
+  def current_user_profile
+    current_user.profile_registered? ? current_user.user_profile : current_user.build_user_profile
   end
 end
