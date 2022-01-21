@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 2021_12_28_122135) do
+ActiveRecord::Schema.define(version: 2022_01_20_122214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_12_28_122135) do
     t.text 'other'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'image'
     t.index ['user_id'], name: 'index_user_profiles_on_user_id'
   end
 

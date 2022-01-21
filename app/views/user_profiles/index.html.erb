@@ -4,8 +4,8 @@
   <% @user_profiles.each do |user_profile| %>
     <li class="bg-palegreen user_profile">
       <a href="<%= profile_path(user_profile) %>">
-        <% if user_profile.user.image.present? %>
-          <img src="<%= user_profile.user.image %>" alt="" class="user_profile__photo">
+        <% if user_profile.image.present? %>
+          <img src="<%= user_profile.image %>" alt="" class="user_profile__photo">
         <% else %>
           <span class="material-icons user_profile__photo">account_box</span>
         <% end %>

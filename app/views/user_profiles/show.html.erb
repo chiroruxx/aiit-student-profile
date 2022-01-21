@@ -1,8 +1,8 @@
 <% content_for(:title, @profile.name + ' さんのプロフィール') %>
 
 <div class="base_profile">
-  <% if @profile.user.image.present? %>
-    <img src="<%= @profile.user.image %>" alt="" class="base_profile__photo">
+  <% if @profile.image.present? %>
+    <img src="<%= @profile.image %>" alt="" class="base_profile__photo">
   <% else %>
     <span class="base_profile__photo material-icons">account_box</span>
   <% end %>
