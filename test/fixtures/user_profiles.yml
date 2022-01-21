@@ -19,6 +19,7 @@ one:
   favorite_food: カラムーチョ
   hated_food: パイナップル
   other: なにか
+  image: 'https://test.com/test.png'
 
 two:
   user_id: 2

@@ -6,10 +6,11 @@
 
 one:
   id: 1
-  provider: Google
+  provider: google_oauth2
   name: Taro Yamada
   uid: 100000000000000000000
   email: taro@example.com
+  image: 'https://test.com/test.png'
 
 two:
   id: 2

@@ -53,4 +53,38 @@ class ProfileRegistrationTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to profile_path(UserProfile.last)
   end
+
+  test 'unsuccessful edit' do
+    @user = users(:one)
+    sign_in_as @user
+    get profiles_edit_path
+    assert_template 'user_profiles/edit'
+    assert_no_difference 'UserProfile.count' do
+      post profiles_path, params: {
+        user_profile: {
+          name: '',
+          email: '',
+          major_subject: '',
+          started: ''
+        }
+      }
+    end
+    assert_template 'user_profiles/edit'
+  end
+
+  test 'successful edit' do
+    @user = users(:one)
+    sign_in_as @user
+    get profiles_edit_path
+    assert_template 'user_profiles/edit'
+    patch profiles_path, params: {
+      user_profile: {
+        name: 'mockuser',
+        email: 'mock@example.com',
+        major_subject: '情報アーキテクチャ',
+        started: '2021'
+      }
+    }
+    assert_redirected_to profile_path(@user.user_profile.id)
+  end
 end
