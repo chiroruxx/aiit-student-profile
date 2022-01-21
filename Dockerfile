@@ -4,8 +4,6 @@ FROM ruby:2.7
 ARG lockfile="Gemfile.lock"
 ARG credential_key=""
 
-ENV RAILS_MASTER_KEY=$credential_key
-
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
@@ -20,7 +18,9 @@ COPY . /profile_app
 COPY $lockfile /profile_app/Gemfile.lock
 
 RUN yarn install --check-files
-RUN bundle exec rails webpacker:compile
+RUN RAILS_MASTER_KEY=$credential_key && \
+    bundle exec rails webpacker:compile && \
+    unset RAILS_MASTER_KEY
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
