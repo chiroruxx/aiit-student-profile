@@ -31,6 +31,22 @@ Create database:
 $ docker-compose run web rake db:create
 ```
 
+### Optional
+ローカルで自分でビルドしたい場合は `docker-compose.yml` を以下のように編集し、
+
+```diff
+-     image: chiroruxx/aiit_student_profule:${CPU}-latest
++     build: .
+```
+
+以下のコマンドを実行することでビルドできます。
+
+```shell
+docker-compose build --build-arg credential_key=your_dev_credential_key
+```
+
+`your_dev_credential_key` のところには、自身のローカルのキーファイルの内容を入れてください。
+
 ## References
 
 - [Production](https://aiit-student-profile.herokuapp.com/)
