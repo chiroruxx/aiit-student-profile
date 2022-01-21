@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
   skip_before_action :signed_in, only: :create
 
   def create
-    if (user = User.find_or_create_from_auth_hash(auth_hash))
+    email = auth_hash.info.email
+    if !email.match?(/.*@aiit.ac.jp/)
+      sign_out
+    elsif (user = User.find_or_create_from_auth_hash(auth_hash))
       sign_in user
     end
     redirect_to root_path
