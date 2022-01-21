@@ -10,6 +10,7 @@ one:
   name: Taro Yamada
   uid: 100000000000000000000
   email: taro@example.com
+  image: https://example.com
 
 two:
   id: 2
