@@ -24,7 +24,7 @@ class LoginTest < ActionDispatch::IntegrationTest
 
     follow_redirect!
     assert_response :redirect
-    assert_redirected_to user_profiles_path
+    assert_redirected_to profiles_path
 
     follow_redirect!
     assert_response :success

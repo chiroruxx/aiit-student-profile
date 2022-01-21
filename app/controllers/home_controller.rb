@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   skip_before_action :signed_in, only: :index
 
   def index
-    redirect_to user_profiles_path if current_user
+    redirect_to profiles_path if current_user
   end
 end

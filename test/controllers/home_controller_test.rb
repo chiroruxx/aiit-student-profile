@@ -19,6 +19,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect to list if logged in' do
     sign_in
     get root_path
-    assert_redirected_to user_profiles_path
+    assert_redirected_to profiles_path
   end
 end
