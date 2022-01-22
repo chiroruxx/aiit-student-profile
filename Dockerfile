@@ -18,9 +18,7 @@ COPY . /profile_app
 COPY $lockfile /profile_app/Gemfile.lock
 
 RUN yarn install --check-files
-RUN RAILS_MASTER_KEY=$credential_key && \
-    bundle exec rails webpacker:compile && \
-    unset RAILS_MASTER_KEY
+RUN RAILS_MASTER_KEY=$credential_key bundle exec rails webpacker:compile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
