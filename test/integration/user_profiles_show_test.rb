@@ -20,7 +20,7 @@ class UserProfilesShowTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template 'user_profiles/show'
 
-    assert_match profile.user.image, @response.body
+    assert_match profile.image, @response.body
     assert_match profile.name, @response.body
     assert_match profile.name_kana, @response.body
     assert_match profile.nickname, @response.body

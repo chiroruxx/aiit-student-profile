@@ -17,7 +17,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
 
     get '/auth/:provider/callback'
 
-    assert_redirected_to root_path
+    assert_redirected_to profiles_path
   end
 
   test 'Save user data if user have not logged in' do

@@ -25,6 +25,11 @@ class UserProfilesIndexTest < ActionDispatch::IntegrationTest
         assert_select 'span.username', text: user_profiles[i].name
         assert_select 'span.major_subject_name', text: user_profiles[i].major_subject
         assert_select 'span.other', text: user_profiles[i].other.truncate(200) if user_profiles[i].other.present?
+        next unless user_profiles[i].image.present?
+
+        assert_select 'img' do
+          assert_select '[src=?]', user_profiles[i].image
+        end
       end
     end
   end

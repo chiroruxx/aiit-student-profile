@@ -5,26 +5,20 @@
     </a>
     <nav class="navbar navbar-expand-lg">
       <ul class="header_menu navbar-nav">
-        <% if current_user %>
-          <% unless params[:controller] == 'user_profiles' && params[:action] == 'index' %>
-            <li class="nav-item">
-              <%= link_to profiles_path, class: 'nav-link' do %>
-                <span class="material-icons">list</span>
-                他のプロフを見る
-              <% end %>
-            </li>
-          <% end %>
-          <% unless params[:controller] == 'user_profiles' && %w(new edit create).include?(params[:action]) %>
-           <li class="nav-item">
-             <%= link_to profiles_edit_path, class: 'nav-link' do %>
-               <span class="material-icons">edit</span>
-               プロフを編集する
-             <% end %>
-            </li>
-          <% end %>
-        <% else %>
+        <% unless params[:controller] == 'user_profiles' && params[:action] == 'index' %>
           <li class="nav-item">
-            <%= link_to 'Sign in with Google', '/auth/google_oauth2', method: :post %>
+            <%= link_to profiles_path, class: 'nav-link' do %>
+              <span class="material-icons">list</span>
+              他のプロフを見る
+            <% end %>
+          </li>
+        <% end %>
+        <% unless params[:controller] == 'user_profiles' && %w(new edit create).include?(params[:action]) %>
+         <li class="nav-item">
+           <%= link_to profiles_edit_path, class: 'nav-link' do %>
+             <span class="material-icons">edit</span>
+             プロフを編集する
+           <% end %>
           </li>
         <% end %>
       </ul>

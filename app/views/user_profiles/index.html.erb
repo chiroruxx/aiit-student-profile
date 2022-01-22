@@ -4,8 +4,11 @@
   <% @user_profiles.each do |user_profile| %>
     <li class="bg-palegreen user_profile">
       <a href="<%= profile_path(user_profile) %>">
-        <%# ユーザーアイコン登録実装後差し替える %>
-        <img src="https://1.bp.blogspot.com/-3YfJ5FDIfB0/Wn1V7_0bdfI/AAAAAAABKGc/NJMDAsrSGBEkWEpaxBjBujsXHqOXEx3pACLcBGAs/s400/hyoujou_shinda_me_man.png" alt="" class="user_profile__photo">
+        <% if user_profile.image.present? %>
+          <img src="<%= user_profile.image %>" alt="" class="user_profile__photo">
+        <% else %>
+          <span class="material-icons user_profile__photo">account_box</span>
+        <% end %>
         <div class="user_profile__info">
           <span class="username"><%= user_profile.name %></span>
           <span class="major_subject">

@@ -19,12 +19,15 @@ class UserProfilesController < ApplicationController
     else
       @user_profile = current_user.build_user_profile
       @user_profile.name = current_user.name
+      @user_profile.email = current_user.email
     end
+    @user_profile.image = current_user.image
   end
 
   def update
     @user_profile = current_user_profile
     @user_profile.assign_attributes profile_params
+    @user_profile.image = current_user.image
 
     if @user_profile.save
       redirect_to profile_path @user_profile
