@@ -89,7 +89,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
       provider: 'google_oauth2',
       uid: '9999999999',
       name: 'mockuser',
-      email: 'mock@example.com',
+      email: 'mock@aiit.ac.jp',
       image: 'https://test.com/test.png'
     }
 
