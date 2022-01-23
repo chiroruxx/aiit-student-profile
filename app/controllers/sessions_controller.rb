@@ -8,7 +8,10 @@ class SessionsController < ApplicationController
     email = auth_hash.info.email
     if !email.match?(/.*@aiit.ac.jp/)
       sign_out
-    elsif (user = User.find_or_create_from_auth_hash(auth_hash))
+      return redirect_to root_path, alert: '@aiit.ac.jp ドメインのみがログイン可能です。'
+    end
+
+    if (user = User.find_or_create_from_auth_hash(auth_hash))
       sign_in user
       return redirect_to profiles_path
     end
