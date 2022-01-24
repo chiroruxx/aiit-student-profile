@@ -26,9 +26,9 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
       uid: '9999999999',
       name: 'mockuser',
       email: 'mock@example.com',
-      image: 'https://test.com/test.png'      
+      image: 'https://test.com/test.png'
     }
-    
+
     setup_mock User.new(user)
 
     get '/auth/:provider/callback'
