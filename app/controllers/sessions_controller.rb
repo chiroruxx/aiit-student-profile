@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   def create
     email = auth_hash.info.email
     unless email.match?(/.*@aiit.ac.jp/)
-      sign_out
       return redirect_to root_path, alert: '@aiit.ac.jp ドメインのみがログイン可能です。'
     end
 
