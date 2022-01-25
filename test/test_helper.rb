@@ -31,7 +31,7 @@ module ActiveSupport
                                                                            uid: '12345678910',
                                                                            info: {
                                                                              name: 'mockuser',
-                                                                             email: 'mock@example.com',
+                                                                             email: 'mock@aiit.ac.jp',
                                                                              image: 'https://test.com/test.png'
                                                                            }
                                                                          })

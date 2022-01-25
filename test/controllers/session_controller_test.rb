@@ -20,6 +20,22 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to profiles_path
   end
 
+  test 'Redirect when invalid email' do
+    user = {
+      provider: 'google_oauth2',
+      uid: '9999999999',
+      name: 'mockuser',
+      email: 'mock@example.com',
+      image: 'https://test.com/test.png'
+    }
+
+    setup_mock User.new(user)
+
+    get '/auth/:provider/callback'
+
+    assert_redirected_to root_path
+  end
+
   test 'Save user data if user have not logged in' do
     # clean up
     User.find_by(provider: 'google_oauth2', uid: '9999999999', &:destroy)
@@ -89,7 +105,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
       provider: 'google_oauth2',
       uid: '9999999999',
       name: 'mockuser',
-      email: 'mock@example.com',
+      email: 'mock@aiit.ac.jp',
       image: 'https://test.com/test.png'
     }
 

@@ -1,6 +1,11 @@
 <div class="top">
   <div class="top__container container">
     <h1 class="top__title">AIIT Student Profile</h1>
+    <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
     <p class="top__description">
       AIIT Student Profile は簡単にプロフィールを作成できるサービスです。<br>
       グループワークでの自己紹介タイムで簡単にわかりやすく自己紹介ができます。

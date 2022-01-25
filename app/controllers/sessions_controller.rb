@@ -5,6 +5,9 @@ class SessionsController < ApplicationController
   skip_before_action :signed_in, only: :create
 
   def create
+    email = auth_hash.info.email
+    return redirect_to root_path, alert: '@aiit.ac.jp ドメインのみがログイン可能です。' unless email.match?(/.*@aiit.ac.jp/)
+
     if (user = User.find_or_create_from_auth_hash(auth_hash))
       sign_in user
       return redirect_to profiles_path
